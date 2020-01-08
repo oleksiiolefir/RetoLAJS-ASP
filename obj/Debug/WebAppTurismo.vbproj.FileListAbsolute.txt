@@ -57,3 +57,9 @@ C:\Users\IN1DM3B_18\Desktop\workspace LAJS\WebAppTurismo\obj\Debug\WebAppTurismo
 C:\Users\IN1DM3B_18\Desktop\workspace LAJS\WebAppTurismo\obj\Debug\WebAppTurismo.dll
 C:\Users\IN1DM3B_18\Desktop\workspace LAJS\WebAppTurismo\obj\Debug\WebAppTurismo.xml
 C:\Users\IN1DM3B_18\Desktop\workspace LAJS\WebAppTurismo\obj\Debug\WebAppTurismo.pdb
+C:\Users\IN1DM3B_18\Desktop\workspace LAJS\RetoLAJS-ASP\obj\Debug\WebAppTurismo.vbprojAssemblyReference.cache
+C:\Users\IN1DM3B_18\Desktop\workspace LAJS\RetoLAJS-ASP\obj\Debug\WebAppTurismo.Resources.resources
+C:\Users\IN1DM3B_18\Desktop\workspace LAJS\RetoLAJS-ASP\obj\Debug\WebAppTurismo.vbproj.GenerateResource.cache
+C:\Users\IN1DM3B_18\Desktop\workspace LAJS\RetoLAJS-ASP\obj\Debug\WebAppTurismo.dll
+C:\Users\IN1DM3B_18\Desktop\workspace LAJS\RetoLAJS-ASP\obj\Debug\WebAppTurismo.xml
+C:\Users\IN1DM3B_18\Desktop\workspace LAJS\RetoLAJS-ASP\obj\Debug\WebAppTurismo.pdb
