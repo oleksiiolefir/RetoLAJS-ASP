@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="WebForm2.aspx.vb" Inherits="PruebaConexionBaseDatos.WebForm2" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="WebForm2.aspx.vb" Inherits="WebAppTurismo.WebForm2" %>
 
 <!DOCTYPE html>
 
