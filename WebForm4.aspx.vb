@@ -4,16 +4,33 @@ Public Class WebForm4
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Label1.Text = "TERCERA PAG"
         Session("Conectar") = System.Web.Configuration.WebConfigurationManager.AppSettings("ConectarMySQL").ToString
+        Label1.Text = "TERCERA PAG"
         llamodatos()
+        rellenarAlojamientos()
+    End Sub
+
+    Protected Sub rellenarAlojamientos()
+        Try
+            Dim cnn As New MySqlConnection()
+            cnn.ConnectionString = Session("Conectar")
+            Dim ds As New DataSet
+            Dim da As New MySqlDataAdapter("select * from alojamiento ", cnn)
+            da.Fill(ds, "alojamiento")
+            GridView2.DataSource = ds.Tables("alojamiento")
+            GridView2.DataBind()
+            Label1.Text = "SE HA CONECTADO"
+        Catch ex As Exception
+            Label1.Text = "NOOOOOOOOO"
+        End Try
+
     End Sub
     Protected Sub llamodatos()
         Try
             Dim cnn As New MySqlConnection()
             cnn.ConnectionString = Session("Conectar")
             Dim ds As New DataSet
-            Dim da As New MySqlDataAdapter("select * from reserva where idAloj = 6915", cnn)
+            Dim da As New MySqlDataAdapter("select * from reserva ", cnn)
             da.Fill(ds, "reserva")
             GridView1.DataSource = ds.Tables("reserva")
             GridView1.DataBind()
@@ -23,4 +40,6 @@ Public Class WebForm4
         End Try
 
     End Sub
+
+
 End Class

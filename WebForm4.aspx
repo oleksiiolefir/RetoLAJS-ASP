@@ -11,8 +11,15 @@
     <form id="form1" runat="server">
         <div>
             <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+            <br />
         </div>
         <asp:GridView ID="GridView1" runat="server">
+        </asp:GridView>
+        <br />
+        <br />
+        <br />
+        <br />
+        <asp:GridView ID="GridView2" runat="server" AutoGenerateEditButton="True">
         </asp:GridView>
     </form>
 </body>
