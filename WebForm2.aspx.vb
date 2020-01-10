@@ -12,7 +12,7 @@ Public Class WebForm2
 
         If Not Page.IsPostBack Then
             Llenar_DropDownList1()
-            Llenar_DropDownList2()
+            '' Llenar_DropDownList2()
         End If
 
     End Sub

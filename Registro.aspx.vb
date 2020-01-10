@@ -15,13 +15,47 @@ Public Class WebForm6
     Protected Sub insertarDatos()
         Dim mes As Date = Calendar1.SelectedDate.ToShortDateString
         Dim MyStr As String
+        Dim numero As Integer-*
         MyStr = Format(mes, "yyyy-MM-dd")
         Label1.Text = MyStr
-        Dim numero As Integer = 3
-        Dim cn As MySqlConnection
-        cn = New MySqlConnection("server = 192.168.101.35;Database=alojamientos;User ID=lajs; Password=lajs")
-        cn.Open()
-        Dim cm As MySqlCommand
+
+
+        Try
+            Dim connString As String = "server = 192.168.101.35;Database=alojamientos;User ID=lajs; Password=lajs"
+            Dim sqlQuery As String = "select max(idCli) from cliente "
+
+            Using sqlConn As New MySqlConnection(connString)
+                Using sqlComm As New MySqlCommand() 'hay que usar un comando por cada select
+                    With sqlComm
+                        .Connection = sqlConn
+                        .CommandText = sqlQuery
+                        .CommandType = CommandType.Text
+                    End With
+                    Try
+                        sqlConn.Open()
+                        Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
+
+                        While sqlReader.Read()
+
+                            numero = sqlReader("idCli").ToString
+
+                        End While
+                        Label2.Text = numero
+                    Catch ex As MySqlException
+
+                    End Try
+                End Using
+            End Using
+        Catch
+
+        End Try
+
+
+
+        'recuperamos los datos desde sql
+
+
+
         cm = New MySqlCommand("INSERT INTO cliente(idCli,apellidos,fechaNac,nombre,password,username) VALUES (?idCli,?apellidos,?fechaNac,?nombre,?password,?username)")
         cm.Parameters.Add("?idCli", MySqlDbType.VarChar)
         cm.Parameters("?idCli").Value = numero ''numero que se auto incerementa
@@ -39,7 +73,7 @@ Public Class WebForm6
         cm.Connection = cn
         cm.ExecuteNonQuery()
         cn.Close()
-        numero += 1
+
     End Sub
 
 End Class
