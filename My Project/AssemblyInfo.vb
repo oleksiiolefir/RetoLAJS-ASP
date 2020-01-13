@@ -7,17 +7,17 @@ Imports System.Runtime.InteropServices
 ' asociada a un ensamblado.
 
 ' Revisar los valores de los atributos del ensamblado
-<Assembly: AssemblyTitle("WebAppTurismo")>
+<Assembly: AssemblyTitle("RetoASP")>
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("WebAppTurismo")>
+<Assembly: AssemblyProduct("RetoASP")>
 <Assembly: AssemblyCopyright("Copyright ©  2020")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
 
 'El siguiente GUID es para el Id. typelib cuando este proyecto esté expuesto a COM
-<Assembly: Guid("32c2b258-ac05-4db7-8c2c-279c43c6ebdf")>
+<Assembly: Guid("7eedf4a3-09a6-4987-abd4-0ae12f2f6250")>
 
 ' La información de versión de un ensamblado consta de los siguientes cuatro valores:
 '

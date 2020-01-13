@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="WebForm4.aspx.vb" Inherits="WebAppTurismo.WebForm4" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="WebForm4.aspx.vb" Inherits="RetoASP.WebForm4" %>
 
 <!DOCTYPE html>
 
