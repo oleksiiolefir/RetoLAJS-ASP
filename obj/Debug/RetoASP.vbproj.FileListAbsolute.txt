@@ -126,3 +126,11 @@ C:\WORKSPACE\RetoLAJS-ASP\obj\Debug\RetoASP.vbproj.CopyComplete
 C:\WORKSPACE\RetoLAJS-ASP\obj\Debug\RetoASP.dll
 C:\WORKSPACE\RetoLAJS-ASP\obj\Debug\RetoASP.xml
 C:\WORKSPACE\RetoLAJS-ASP\obj\Debug\RetoASP.pdb
+C:\WORKSPACE\RetoLAJS-ASP\bin\OC.Core.Crypto.dll
+C:\WORKSPACE\RetoLAJS-ASP\bin\OC.Core.dll
+C:\WORKSPACE\RetoLAJS-ASP\bin\BouncyCastle.Crypto.pdb
+C:\WORKSPACE\RetoLAJS-ASP\bin\OC.Core.pdb
+C:\WORKSPACE\RetoLAJS-ASP\bin\OC.Core.Crypto.pdb
+C:\WORKSPACE\RetoLAJS-ASP\bin\eCryptography.dll
+C:\WORKSPACE\RetoLAJS-ASP\bin\System.Data.SqlClient.dll
+C:\WORKSPACE\RetoLAJS-ASP\bin\System.Data.SqlClient.xml

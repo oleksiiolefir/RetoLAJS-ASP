@@ -6,25 +6,26 @@ Public Class WebForm2
     Inherits System.Web.UI.Page
     Dim texto As String = ""
     Dim capacidad As String = ""
+    Dim tipo As String
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Session("Conectar") = System.Web.Configuration.WebConfigurationManager.AppSettings("ConectarMySQL").ToString
-        rellenoGrid(texto, capacidad)
+        rellenoGrid(texto, capacidad, tipo)
 
         If Not Page.IsPostBack Then
             Llenar_DropDownList1()
-            '' Llenar_DropDownList2()
+            Llenar_DropDownList2()
         End If
 
     End Sub
 
-    Protected Sub rellenoGrid(texto, capacidad)
+    Protected Sub rellenoGrid(texto, capacidad, tipo)
         Try
             Dim SQLsentence As String
 
             If capacidad.Equals("") Then
-                SQLsentence = "select * from alojamiento where localidad like('" + texto + "')"
+                SQLsentence = "select * from alojamiento where localidad like('" + texto + "') And tipo = '" + tipo + "'"
             ElseIf Not capacidad.Equals("") Then
-                SQLsentence = "select * from alojamiento where  localidad like ('" + texto + "')" + "AND capacidad =" + capacidad
+                SQLsentence = "select * from alojamiento where  localidad like ('" + texto + "') And tipo = '" + tipo + "'" + " AND capacidad >=" + capacidad
             End If
 
             If texto.Equals("") And capacidad.Equals("") Then
@@ -77,19 +78,16 @@ Public Class WebForm2
             Dim ds As New DataSet
             Dim ds2 As New DataSet
             'recuperamos los datos desde sql
-            Dim da As New MySqlDataAdapter("select distinct provincia from alojamiento ", cnn)
-            da.Fill(ds, "provincia")
-            Dim da2 As New MySqlDataAdapter("select max(idCli) from cliente ", cnn)
-            da2.Fill(ds2, "maxcont")
+            Dim da As New MySqlDataAdapter("select distinct tipo from alojamiento ", cnn)
+            da.Fill(ds, "tipo")
 
-            DropDownList1.DataSource = ds.Tables("provincia")
+            DropDownList2.DataSource = ds.Tables("tipo")
 
-            Me.DropDownList1.DataTextField = "provincia" 'valor a mostrar
-            DropDownList1.DataValueField = "provincia"
-            Me.DropDownList1.DataBind()
+            Me.DropDownList2.DataTextField = "tipo" 'valor a mostrar
+            DropDownList2.DataValueField = "tipo"
+            Me.DropDownList2.DataBind()
             cnn.Close()
         Catch ex As Exception
-
 
         End Try
     End Sub
@@ -103,6 +101,7 @@ Public Class WebForm2
 
 
         texto = DropDownList1.SelectedValue
+        tipo = DropDownList2.SelectedValue
         If TextBox1.Text.Equals("") Then
             capacidad = ""
         Else
@@ -111,7 +110,7 @@ Public Class WebForm2
 
         Label3.Text = capacidad
         Label2.Text = texto
-        rellenoGrid(texto, capacidad)
+        rellenoGrid(texto, capacidad, tipo)
     End Sub
 
 End Class
