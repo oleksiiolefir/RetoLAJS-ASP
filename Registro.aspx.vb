@@ -11,7 +11,7 @@ Public Class Registro
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
         insertarDatos()
-        '' Response.Redirect("WebForm5.aspx")
+        Response.Redirect("WebForm5.aspx")
     End Sub
     Protected Sub insertarDatos()
         Dim cn As MySqlConnection
@@ -22,7 +22,6 @@ Public Class Registro
         Dim dni As String
         Dim numero As Integer
         MyStr = Format(mes, "yyyy-MM-dd")
-        Label1.Text = MyStr
 
         Try
             Dim connString As String = "server= 192.168.101.35; database=alojamientos ; user id=lajs; password=lajs"
@@ -74,8 +73,6 @@ Public Class Registro
             MsgBox("Error Al Conectar la base de datos")
         End Try
         numero += 1
-        Label2.Text = numero
-        Label1.Text = GetHash(TextBox2.Text)
         ''Insertamos datos a la base de datos 
         If Not dni.Equals("") Then
             cn.Open()
