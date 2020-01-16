@@ -19,7 +19,7 @@
         <br />
         <br />
         <br />
-        <asp:GridView ID="GridView2" runat="server" AutoGenerateEditButton="True">
+        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="false" onrowediting="GridView2_RowEditing">
         </asp:GridView>
     </form>
 </body>

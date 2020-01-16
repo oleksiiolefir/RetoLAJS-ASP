@@ -30,16 +30,19 @@ Public Class WebForm4
             Dim cnn As New MySqlConnection()
             cnn.ConnectionString = Session("Conectar")
             Dim ds As New DataSet
-            Dim da As New MySqlDataAdapter("select * from reserva ", cnn)
+            Dim da As New MySqlDataAdapter("select * from usuario ", cnn)
             da.Fill(ds, "reserva")
             GridView1.DataSource = ds.Tables("reserva")
             GridView1.DataBind()
             Label1.Text = "SE HA CONECTADO"
+            cnn.Close()
         Catch ex As Exception
             Label1.Text = "NOOOOOOOOO"
         End Try
 
     End Sub
 
+    Protected Sub GridView2_RowEditing(sender As Object, e As GridViewEditEventArgs) Handles GridView2.RowEditing
 
+    End Sub
 End Class
