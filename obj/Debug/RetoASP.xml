@@ -397,6 +397,60 @@ Campo generado automáticamente.
 Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 </remarks>
 </member>
+<member name="F:RetoASP.WebForm3._Label1">
+<summary>
+Control Label1.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:RetoASP.WebForm3._Label5">
+<summary>
+Control Label5.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:RetoASP.WebForm3._Label6">
+<summary>
+Control Label6.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:RetoASP.WebForm3._Label7">
+<summary>
+Control Label7.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:RetoASP.WebForm3._Label8">
+<summary>
+Control Label8.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:RetoASP.WebForm3._Label9">
+<summary>
+Control Label9.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
 <member name="F:RetoASP.WebForm3._Label2">
 <summary>
 Control Label2.
@@ -418,6 +472,24 @@ Para modificarlo, mueva la declaración del campo del archivo del diseñador al 
 <member name="F:RetoASP.WebForm3._Button1">
 <summary>
 Control Button1.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:RetoASP.WebForm3._Button2">
+<summary>
+Control Button2.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:RetoASP.WebForm3._GridView1">
+<summary>
+Control GridView1.
 </summary>
 <remarks>
 Campo generado automáticamente.
@@ -454,6 +526,15 @@ Para modificarlo, mueva la declaración del campo del archivo del diseñador al 
 <member name="F:RetoASP.WebForm4._GridView2">
 <summary>
 Control GridView2.
+</summary>
+<remarks>
+Campo generado automáticamente.
+Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+</remarks>
+</member>
+<member name="F:RetoASP.WebForm4._GridView3">
+<summary>
+Control GridView3.
 </summary>
 <remarks>
 Campo generado automáticamente.

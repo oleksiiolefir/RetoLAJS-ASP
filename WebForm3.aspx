@@ -69,7 +69,9 @@
         <p>
             &nbsp;&nbsp;&nbsp; &nbsp;</p>
         <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        </p>
     <p>
         <table class="auto-style2">
             <tr>
@@ -100,13 +102,13 @@
         </p>
         <p>
             <asp:Button ID="Button1" runat="server" Text="Buscar" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="Button2" runat="server" Text="Atras" />
         </p>
         <p>
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateSelectButton="True" AutoPostback="Flash">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateSelectButton="True">
             </asp:GridView>
         </p>
-        <div>
-        </div>
     </form>
 </body>
 </html>

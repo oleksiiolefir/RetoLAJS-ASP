@@ -92,7 +92,8 @@ Public Class WebForm2
         End Try
     End Sub
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Response.Redirect("WebForm1.aspx")
+        Dim valor As String = Request.Params("parametro")
+        Response.Redirect("WebForm1.aspx?parametro=" + valor)
     End Sub
 
 

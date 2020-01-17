@@ -1,13 +1,21 @@
 ﻿Public Class WebForm3
     Inherits System.Web.UI.Page
-    Dim fecmin As Date = Date.MinValue
+    Public nomUsuario As String
+    Private MinDate As Date = Date.MinValue
+    Private MaxDate As Date = Date.MaxValue
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Session("Conectar") = System.Web.Configuration.WebConfigurationManager.AppSettings("ConectarMySQL").ToString
-        fecmin = Date.Today
+
         If Not Page.IsPostBack Then
+            Calendar2.SelectedDate = Today
             rellenarAlojamientos()
+            Label1.Text = Request.Params("parametro")
+            MinDate = Date.Today
+            MaxDate = Calendar1.SelectedDate
+
         End If
-        '' Label2.Text = Request.Params("parametro")
+
     End Sub
 
     Protected Sub Calendar1_SelectionChanged(sender As Object, e As EventArgs) Handles Calendar1.SelectionChanged
@@ -16,7 +24,6 @@
 
     End Sub
     Protected Sub Calendar2_SelectionChanged(sender As Object, e As EventArgs) Handles Calendar2.SelectionChanged
-        fecmin = Calendar1.SelectedDate
         Label3.Text = Calendar2.SelectedDate.ToLongDateString
     End Sub
     Protected Sub GridView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GridView1.SelectedIndexChanged
@@ -59,6 +66,7 @@
         nom = Session("nombre")
         MsgBox(nom)
         username = Request.Params("parametro")
+        MsgBox(username)
         Dim idAloj, idUsr, idRes As Integer
         Try
             Dim connString As String = "server= 192.168.101.35; database=alojamientos ; user id=lajs; password=lajs"
@@ -134,14 +142,16 @@
             MsgBox("Error Al Conectar la base de datos")
         End Try
         idRes += 1
-        InsertarReservas(idRes, idAloj, idUsr)
+        If idUsr <> 0 And idAloj <> 0 And username <> "" Then
+            InsertarReservas(idRes, idAloj, idUsr)
+        End If
     End Sub
 
     Protected Sub InsertarReservas(ByRef idRes As Integer, ByRef idAloj As Integer, ByRef idUsr As Integer)
         Dim cn As MySqlConnection = New MySqlConnection("server = 192.168.101.35;Database=alojamientos;User ID=lajs; Password=lajs")
         Dim cm As MySqlCommand
-        Dim fechIni As Date = Calendar1.SelectedDate.ToShortDateString
-        Dim fechaFin As Date = Calendar2.SelectedDate.ToShortDateString
+        Dim fechIni As Date = Calendar2.SelectedDate.ToShortDateString
+        Dim fechaFin As Date = Calendar1.SelectedDate.ToShortDateString
         Dim fechaInicio, fechaFinal As String
 
         fechaInicio = Format(fechIni, "yyyy-MM-dd")
@@ -164,5 +174,28 @@
         cm.Connection = cn
         cm.ExecuteNonQuery()
         cn.Close()
+    End Sub
+
+    Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim valor As String = Request.Params("parametro")
+        MsgBox(valor)
+        Response.Redirect("WebForm1.aspx?parametro=" + valor)
+    End Sub
+
+    Protected Sub Calendar2_DayRender(sender As Object, e As DayRenderEventArgs) Handles Calendar2.DayRender
+        MinDate = Date.Today
+        MaxDate = Calendar1.SelectedDate
+        If e.Day.Date < MinDate OrElse e.Day.Date > MaxDate Then
+            e.Day.IsSelectable = False
+        End If
+
+    End Sub
+    Protected Sub Calendar1_DayRender(sender As Object, e As DayRenderEventArgs) Handles Calendar1.DayRender
+
+        MinDate = Calendar2.SelectedDate
+        If e.Day.Date < MinDate Then
+            e.Day.IsSelectable = False
+        End If
+
     End Sub
 End Class

@@ -19,7 +19,11 @@
         <br />
         <br />
         <br />
-        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="false" onrowediting="GridView2_RowEditing">
+        <asp:GridView ID="GridView2" runat="server">
+        </asp:GridView>
+        <p>
+            &nbsp;</p>
+        <asp:GridView ID="GridView3" runat="server">
         </asp:GridView>
     </form>
 </body>

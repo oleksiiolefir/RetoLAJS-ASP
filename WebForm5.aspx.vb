@@ -13,7 +13,8 @@ Public Class WebForm5
         Dim contra As Boolean
         contra = SacaContra()
         If contra = True Then
-            Response.Redirect("WebForm1.aspx")
+
+            Response.Redirect("WebForm1.aspx?parametro=" + TextBox1.Text)
         Else
             MsgBox("Datos erroneos")
             TextBox1.Text = ""
