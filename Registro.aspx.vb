@@ -11,7 +11,7 @@ Public Class Registro
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
         insertarDatos()
-        Response.Redirect("WebForm5.aspx")
+        Response.Redirect("InicioSession.aspx")
     End Sub
     Protected Sub insertarDatos()
         Dim cn As MySqlConnection

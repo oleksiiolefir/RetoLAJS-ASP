@@ -172,10 +172,10 @@
     <Content Include="Registro.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
-    <Content Include="WebForm2.aspx" />
-    <Content Include="WebForm3.aspx" />
-    <Content Include="WebForm4.aspx" />
-    <Content Include="WebForm5.aspx" />
+    <Content Include="VerAlojamientos.aspx" />
+    <Content Include="RealizarReserva.aspx" />
+    <Content Include="ModificarReserva.aspx" />
+    <Content Include="InicioSession.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -211,32 +211,32 @@
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm2.aspx.designer.vb">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="VerAlojamientos.aspx.designer.vb">
+      <DependentUpon>VerAlojamientos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm2.aspx.vb">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="VerAlojamientos.aspx.vb">
+      <DependentUpon>VerAlojamientos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm3.aspx.designer.vb">
-      <DependentUpon>WebForm3.aspx</DependentUpon>
+    <Compile Include="RealizarReserva.aspx.designer.vb">
+      <DependentUpon>RealizarReserva.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm3.aspx.vb">
-      <DependentUpon>WebForm3.aspx</DependentUpon>
+    <Compile Include="RealizarReserva.aspx.vb">
+      <DependentUpon>RealizarReserva.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm4.aspx.designer.vb">
-      <DependentUpon>WebForm4.aspx</DependentUpon>
+    <Compile Include="ModificarReserva.aspx.designer.vb">
+      <DependentUpon>ModificarReserva.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm4.aspx.vb">
-      <DependentUpon>WebForm4.aspx</DependentUpon>
+    <Compile Include="ModificarReserva.aspx.vb">
+      <DependentUpon>ModificarReserva.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm5.aspx.designer.vb">
-      <DependentUpon>WebForm5.aspx</DependentUpon>
+    <Compile Include="InicioSession.aspx.designer.vb">
+      <DependentUpon>InicioSession.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm5.aspx.vb">
-      <DependentUpon>WebForm5.aspx</DependentUpon>
+    <Compile Include="InicioSession.aspx.vb">
+      <DependentUpon>InicioSession.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
   </ItemGroup>
