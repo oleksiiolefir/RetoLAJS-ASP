@@ -236,7 +236,6 @@
 
                         If Not sqlReader4.HasRows Then
                             MsgBox("Se puede hacer la reserva")
-
                         Else
                             MsgBox("No se puede hace la reserva entre estas fechas")
                             fechaInicio = ""
