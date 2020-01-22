@@ -38,7 +38,12 @@ Public Class Registro
                         sqlConn.Open()
                         Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
                         While sqlReader.Read()
-                            numero = sqlReader("max(idUsr)").ToString
+                            If sqlReader.IsDBNull(0) Then
+                                numero = 1
+                            Else
+                                numero = sqlReader("max(idUsr)")
+                            End If
+
                         End While
 
                     Catch ex As MySqlException

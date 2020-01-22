@@ -57,7 +57,7 @@ Public Class WebForm2
             cnn.ConnectionString = Session("conectar")
             Dim ds As New DataSet
             'recuperamos los datos desde sql
-            Dim da As New MySqlDataAdapter("select distinct localidad from alojamiento ", cnn)
+            Dim da As New MySqlDataAdapter("select distinct localidad from alojamiento order by localidad asc", cnn)
             da.Fill(ds, "localidad")
             DropDownList1.DataSource = ds.Tables("localidad")
 
@@ -78,7 +78,7 @@ Public Class WebForm2
             Dim ds As New DataSet
             Dim ds2 As New DataSet
             'recuperamos los datos desde sql
-            Dim da As New MySqlDataAdapter("select distinct tipo from alojamiento ", cnn)
+            Dim da As New MySqlDataAdapter("select distinct tipo from alojamiento order by tipo asc", cnn)
             da.Fill(ds, "tipo")
 
             DropDownList2.DataSource = ds.Tables("tipo")
@@ -114,4 +114,20 @@ Public Class WebForm2
         rellenoGrid(texto, capacidad, tipo)
     End Sub
 
+    Protected Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Try
+            Dim Sqlsentence As String = "select * from alojamiento"
+            Dim cnn As New MySqlConnection()
+            cnn.ConnectionString = Session("Conectar")
+            Dim ds As New DataSet
+            Dim da As New MySqlDataAdapter(Sqlsentence, cnn)
+            da.Fill(ds, "cliente")
+            GridView1.DataSource = ds.Tables("cliente")
+            GridView1.DataBind()
+            cnn.Close()
+            Label1.Text = "SE HA CONECTADO"
+        Catch ex As Exception
+            Label1.Text = "NOOOOOOOOO"
+        End Try
+    End Sub
 End Class

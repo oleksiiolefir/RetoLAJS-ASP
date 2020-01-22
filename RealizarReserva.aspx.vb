@@ -1,6 +1,9 @@
 ﻿Public Class WebForm3
     Inherits System.Web.UI.Page
-    Public nomUsuario, capacidad As String
+    Public nomUsuario As String
+    Dim localidad As String = ""
+    Dim capacidad As String = ""
+    Dim tipo As String
     Private MinDate As Date = Date.MinValue
     Private MaxDate As Date = Date.MaxValue
     Dim fechaInicio, fechaFinal As String
@@ -13,12 +16,8 @@
             ' rellenarAlojamientos()
             Llenar_DropDownList1()
             Llenar_DropDownList2()
-            If TextBox1.Text = "" Then
-                capacidad = ""
-            Else
-                capacidad = CInt(TextBox1.Text)
-            End If
-            rellenoGrid(DropDownList1.SelectedValue, capacidad, DropDownList2.SelectedValue)
+
+            rellenoGrid(localidad, capacidad, tipo)
             Label1.Text = Request.Params("parametro")
             MinDate = Date.Today
             MaxDate = Calendar1.SelectedDate
@@ -288,7 +287,14 @@
     End Sub
 
     Protected Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-
+        If TextBox1.Text = "" Then
+            capacidad = ""
+        Else
+            capacidad = CInt(TextBox1.Text)
+        End If
+        localidad = DropDownList1.SelectedValue
+        tipo = DropDownList2.SelectedValue
+        rellenoGrid(localidad, capacidad, tipo)
     End Sub
 
     Protected Sub Calendar2_DayRender(sender As Object, e As DayRenderEventArgs) Handles Calendar2.DayRender
