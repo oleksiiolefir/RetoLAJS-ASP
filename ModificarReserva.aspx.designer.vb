@@ -84,4 +84,13 @@ Partial Public Class WebForm4
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents GridView3 As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Control GridView4.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents GridView4 As Global.System.Web.UI.WebControls.GridView
 End Class

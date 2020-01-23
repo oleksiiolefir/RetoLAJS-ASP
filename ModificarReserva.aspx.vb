@@ -7,6 +7,7 @@ Public Class WebForm4
     Dim fechaEntrada, fechaSalida As String
     Private MinDate As Date = Date.MinValue
     Private MaxDate As Date = Date.MaxValue
+    Dim tabla As New DataTable()
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Session("Conectar") = System.Web.Configuration.WebConfigurationManager.AppSettings("ConectarMySQL").ToString
         If Not Page.IsPostBack Then
@@ -21,12 +22,14 @@ Public Class WebForm4
 
     Protected Sub RellenarReservas()
         Try
+
             username = Request.Params("parametro")
             Dim cnn As New MySqlConnection()
             cnn.ConnectionString = Session("Conectar")
+            Dim sqlsent As String = "SELECT fechaEntrada As 'Fecha De Entrada',fechaSalida As 'Fecha De Salida',nombre As 'Nombre del Alojamiento',idUsr FROM alojamiento,reserva 
+                 WHERE alojamiento.idAloj = reserva.idAloj And `idUsr` = (SELECT idUsr from usuario where username = '" + username + "')"
             Dim ds As New DataSet
-            Dim da As New MySqlDataAdapter("SELECT * FROM `reserva` where idUsr = (select idUsr from usuario where username ='" + username + "') order by idRes asc", cnn)
-            'HACER LA  SELECT CON EL NOMBRE DEL ALOJAMIENTO :::???AD?Q?ADQ??DQ?W__________________________________________
+            Dim da As New MySqlDataAdapter(sqlsent, cnn)
             da.Fill(ds, "reserva")
             GridView3.DataSource = ds.Tables("reserva")
             GridView3.DataBind()
@@ -35,7 +38,6 @@ Public Class WebForm4
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-
     End Sub
     Protected Sub llamodatos()
         Try
@@ -56,10 +58,47 @@ Public Class WebForm4
 
     Protected Sub GridView3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GridView3.SelectedIndexChanged
         Dim row As GridViewRow = GridView3.SelectedRow
-        Session("idRes") = row.Cells(1).Text
-        Session("idAloj") = row.Cells(4).Text
-        Session("idUsr") = row.Cells(5).Text
+        Session("idAloj") = row.Cells(3).Text
+        Session("idUsr") = row.Cells(4).Text
+
         MsgBox("Ha seleccionado la fila")
+    End Sub
+
+    Sub SacaIdRes()
+        Try
+            Dim nombre As String = Session("idAloj")
+            MsgBox("--------------------" + nombre)
+            username = Request.Params("parametro")
+            MsgBox("--------------------" + username)
+            Dim connString As String = "server= 192.168.101.35; database=alojamientos ; user id=lajs; password=lajs"
+            Dim sqlsentence As String = " SELECT idRes FROM `reserva` WHERE idUsr = (select idUsr from usuario where username = @username) And idAloj = (select idAloj from alojamiento where nombre = @nombre)"
+            Using sqlConn As New MySqlConnection(connString)
+                Using sqlComm As New MySqlCommand() 'hay que usar un comando por cada select 
+                    With sqlComm
+                        .Connection = sqlConn
+                        .CommandText = sqlsentence
+                        .CommandType = CommandType.Text
+                        .Parameters.AddWithValue("@username", username)
+                        .Parameters.AddWithValue("@nombre", nombre)
+
+                    End With
+                    Try
+                        sqlConn.Open()
+                        Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
+                        While sqlReader.Read()
+                            idRes = sqlReader("idRes")
+                            MsgBox("AAAAAAAAAAAAAAAAAAAAAA" + idRes)
+                        End While
+                    Catch ex As MySqlException
+                        MsgBox(ex)
+                    End Try
+                End Using
+            End Using
+
+            Session("idRes") = idRes
+        Catch ex As Exception
+            MsgBox(ex)
+        End Try
     End Sub
 
     Protected Sub GridView3_RowDeleting1(sender As Object, e As GridViewDeleteEventArgs) Handles GridView3.RowDeleting
@@ -106,7 +145,7 @@ Public Class WebForm4
 
     Protected Sub actualizarReserva(fechaEnt, fechaSal)
 
-        idRes = Session("idRes")
+        SacaIdRes()
         MsgBox(idRes)
         Try
             Dim connString As String = "server= 192.168.101.35; database=alojamientos ; user id=lajs; password=lajs"
@@ -151,7 +190,7 @@ Public Class WebForm4
             MsgBox(fechaSalida)
 
             connString = "server= 192.168.101.35; database=alojamientos ; user id=lajs; password=lajs"
-            sql = "SELECT * FROM `reserva` where  fechaEntrada BETWEEN @fechaEntrada And @fechaSalida OR fechaSalida BETWEEN @fechaEntrada And @fechaSalida And idUsr = @idUsr And idAloj = @idAloj"
+            sql = "SELECT * FROM `reserva` where idUsr = @idUsr And idAloj =(select idAloj from alojamiento where nombre =@idAloj ) AND fechaEntrada BETWEEN @fechaEntrada And @fechaSalida AND fechaSalida BETWEEN @fechaEntrada And @fechaSalida   "
             Using sqlConn As New MySqlConnection(connString)
                 Using sqlComm As New MySqlCommand() 'hay que usar un comando por cada select 
                     With sqlComm
