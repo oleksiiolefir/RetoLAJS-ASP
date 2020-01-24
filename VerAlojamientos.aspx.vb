@@ -7,28 +7,35 @@ Public Class WebForm2
     Dim texto As String = ""
     Dim capacidad As String = ""
     Dim tipo As String
+    Dim nombreAloj As String = ""
+    Dim ordenacion As String = "ASC"
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Session("Conectar") = System.Web.Configuration.WebConfigurationManager.AppSettings("ConectarMySQL").ToString
-        rellenoGrid(texto, capacidad, tipo)
+        rellenoGrid(texto, capacidad, tipo, nombreAloj)
 
         If Not Page.IsPostBack Then
+
             Llenar_DropDownList1()
             Llenar_DropDownList2()
         End If
 
     End Sub
 
-    Protected Sub rellenoGrid(texto, capacidad, tipo)
+    Protected Sub rellenoGrid(texto, capacidad, tipo, nombreAloj)
         Try
             Dim SQLsentence As String
-
-            If capacidad.Equals("") Then
-                SQLsentence = "select * from alojamiento where localidad like('" + texto + "') And tipo = '" + tipo + "'"
+            MsgBox(ordenacion)
+            If capacidad.Equals("") And nombreAloj.Equals("") Then
+                SQLsentence = "select * from alojamiento where localidad like('" + texto + "') And tipo = '" + tipo
             ElseIf Not capacidad.Equals("") Then
-                SQLsentence = "select * from alojamiento where  localidad like ('" + texto + "') And tipo = '" + tipo + "'" + " AND capacidad >=" + capacidad
+                SQLsentence = "select * from alojamiento where  localidad like ('" + texto + "') And tipo = '" + tipo + "'" + " AND capacidad >=" + capacidad + " order by nombre " + ordenacion
+            ElseIf Not nombreAloj.Equals("") And capacidad.Equals("") Then
+                SQLsentence = "select * from alojamiento where  localidad like ('" + texto + "') And tipo = '" + tipo + "'" + " AND capacidad >=" + capacidad + "AND nombre like('" + nombreAloj + "') order by nombre " + ordenacion
+            ElseIf Not nombreAloj.Equals("") Then
+                SQLsentence = "select * from alojamiento where  localidad like ('" + texto + "') And tipo = '" + tipo + "'" + " AND nombre like('" + nombreAloj + "') order by nombre " + ordenacion
             End If
 
-            If texto.Equals("") And capacidad.Equals("") Then
+            If texto.Equals("") And capacidad.Equals("") And nombreAloj.Equals("") Then
                 SQLsentence = "select * from alojamiento"
             End If
 
@@ -57,7 +64,7 @@ Public Class WebForm2
             cnn.ConnectionString = Session("conectar")
             Dim ds As New DataSet
             'recuperamos los datos desde sql
-            Dim da As New MySqlDataAdapter("select distinct localidad from alojamiento order by localidad asc", cnn)
+            Dim da As New MySqlDataAdapter("select distinct localidad from alojamiento order by localidad " + ordenacion, cnn)
             da.Fill(ds, "localidad")
             DropDownList1.DataSource = ds.Tables("localidad")
 
@@ -78,7 +85,7 @@ Public Class WebForm2
             Dim ds As New DataSet
             Dim ds2 As New DataSet
             'recuperamos los datos desde sql
-            Dim da As New MySqlDataAdapter("select distinct tipo from alojamiento order by tipo asc", cnn)
+            Dim da As New MySqlDataAdapter("select distinct tipo from alojamiento order by tipo " + ordenacion, cnn)
             da.Fill(ds, "tipo")
 
             DropDownList2.DataSource = ds.Tables("tipo")
@@ -99,10 +106,14 @@ Public Class WebForm2
 
 
     Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-
-
         texto = DropDownList1.SelectedValue
         tipo = DropDownList2.SelectedValue
+        nombreAloj = TextBox2.Text
+        If TextBox2.Text.Equals("") Then
+            nombreAloj = ""
+        Else
+            nombreAloj = TextBox2.Text
+        End If
         If TextBox1.Text.Equals("") Then
             capacidad = ""
         Else
@@ -111,12 +122,12 @@ Public Class WebForm2
 
         Label3.Text = capacidad
         Label2.Text = texto
-        rellenoGrid(texto, capacidad, tipo)
+        rellenoGrid(texto, capacidad, tipo, nombreAloj)
     End Sub
 
     Protected Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Try
-            Dim Sqlsentence As String = "select * from alojamiento"
+            Dim Sqlsentence As String = "select * from alojamiento order by nombre" + +ordenacion
             Dim cnn As New MySqlConnection()
             cnn.ConnectionString = Session("Conectar")
             Dim ds As New DataSet
@@ -129,5 +140,21 @@ Public Class WebForm2
         Catch ex As Exception
             Label1.Text = "NOOOOOOOOO"
         End Try
+    End Sub
+
+    Protected Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
+        If RadioButton1.Checked = True Then
+            ordenacion = "DESC"
+        Else
+            ordenacion = "ASC"
+        End If
+    End Sub
+
+    Protected Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
+        If RadioButton1.Checked = True Then
+            ordenacion = "DESC"
+        Else
+            ordenacion = "ASC"
+        End If
     End Sub
 End Class

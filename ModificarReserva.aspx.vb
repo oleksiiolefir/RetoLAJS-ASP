@@ -101,33 +101,37 @@ Public Class WebForm4
         End Try
     End Sub
 
-    Protected Sub GridView3_RowDeleting1(sender As Object, e As GridViewDeleteEventArgs) Handles GridView3.RowDeleting
+    Protected Sub GridView3_RowDeleting(sender As Object, e As GridViewDeleteEventArgs) Handles GridView3.RowDeleting
+        SacaIdRes()
         idRes = Session("idRes")
         MsgBox(idRes)
-        Try
-            Dim connString As String = "server= 192.168.101.35; database=alojamientos ; user id=lajs; password=lajs"
-            Dim sqlsentence As String = "delete from reserva where idRes = @idRes"
-            Using sqlConn As New MySqlConnection(connString)
-                Using sqlComm As New MySqlCommand() 'hay que usar un comando por cada select 
-                    With sqlComm
-                        .Connection = sqlConn
-                        .CommandText = sqlsentence
-                        .CommandType = CommandType.Text
-                        .Parameters.AddWithValue("@idRes", idRes)
-                    End With
-                    Try
-                        sqlConn.Open()
-                        Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
-                        RellenarReservas()
-                    Catch ex As MySqlException
-                        MsgBox(ex)
-                    End Try
+        If idRes = "" Then
+            MsgBox("Seleccione una reserva")
+        Else
+            Try
+                Dim connString As String = "server= 192.168.101.35; database=alojamientos ; user id=lajs; password=lajs"
+                Dim sqlsentence As String = "delete from reserva where idRes = @idRes"
+                Using sqlConn As New MySqlConnection(connString)
+                    Using sqlComm As New MySqlCommand() 'hay que usar un comando por cada select 
+                        With sqlComm
+                            .Connection = sqlConn
+                            .CommandText = sqlsentence
+                            .CommandType = CommandType.Text
+                            .Parameters.AddWithValue("@idRes", idRes)
+                        End With
+                        Try
+                            sqlConn.Open()
+                            Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
+                            RellenarReservas()
+                        Catch ex As MySqlException
+                            MsgBox(ex)
+                        End Try
+                    End Using
                 End Using
-            End Using
-        Catch ex As Exception
-            MsgBox("ERRRRRRROR")
-        End Try
-
+            Catch ex As Exception
+                MsgBox("ERRRRRRROR")
+            End Try
+        End If
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

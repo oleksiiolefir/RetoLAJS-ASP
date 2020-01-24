@@ -6,6 +6,7 @@
     Dim tipo As String
     Private MinDate As Date = Date.MinValue
     Private MaxDate As Date = Date.MaxValue
+
     Dim fechaInicio, fechaFinal As String
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Session("Conectar") = System.Web.Configuration.WebConfigurationManager.AppSettings("ConectarMySQL").ToString
