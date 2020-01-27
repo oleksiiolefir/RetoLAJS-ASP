@@ -24,4 +24,8 @@ Public Class WebForm1
         Dim valor As String = Request.Params("parametro")
         Response.Redirect("ModificarReserva.aspx?parametro=" + valor)
     End Sub
+
+    Protected Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Response.Redirect("InicioSession.aspx")
+    End Sub
 End Class

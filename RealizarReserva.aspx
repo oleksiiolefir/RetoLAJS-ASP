@@ -33,12 +33,16 @@
         .auto-style9 {
             width: 258px;
         }
+        .auto-style10 {
+            margin-left: 1040px;
+        }
     </style>
 </head>
 <body>
-    <p>
-        &nbsp;</p>
     <form id="form1" runat="server">
+    <p class="auto-style10">
+        <asp:Button ID="Button4" runat="server" Text="Cerrar Sessión" />
+        </p>
         <p>
             <table class="auto-style3">
                 <tr>

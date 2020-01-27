@@ -14,10 +14,8 @@
         If Not Page.IsPostBack Then
             Calendar2.SelectedDate = Today
             Calendar1.SelectedDate = (Date.Today).AddDays(1)
-            ' rellenarAlojamientos()
             Llenar_DropDownList1()
             Llenar_DropDownList2()
-
             rellenoGrid(localidad, capacidad, tipo)
             Label1.Text = Request.Params("parametro")
             MinDate = Date.Today
@@ -77,7 +75,7 @@
     Protected Sub GridView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GridView1.SelectedIndexChanged
         Dim row As GridViewRow = GridView1.SelectedRow
 
-        ''Label4.Text = +"    -----------  " + row.Cells(2).Text + "  -----------     " + row.Cells(3).Text + "  -----------     " + row.Cells(4).Text + "  -----------     " + row.Cells(5).Text
+
         Label5.Text = row.Cells(1).Text
         Label6.Text = row.Cells(2).Text
         Label7.Text = row.Cells(3).Text
@@ -91,13 +89,6 @@
             cnn.ConnectionString = Session("Conectar")
             Dim ds As New DataSet
             Dim da As New MySqlDataAdapter("select tipo,localidad,direccion,capacidad,nombre from alojamiento order by nombre asc", cnn)
-            ' nombre  = SELECT `nombre` from alojamiento where idAloj = (select idAloj from reserva )
-            'username = coge de otro webforms
-            ' insert into reservas values (idRes,fechaIni,fechaFin,idAloj = select idAloj from alojamiento where nombre = nombre seleccionado en el gridView,idUsr = select idUsr from usuario  where username = me viene de otro forms)
-            '
-            '
-            '
-            '
             da.Fill(ds, "alojamiento")
             GridView1.DataSource = ds.Tables("alojamiento")
             GridView1.DataBind()
@@ -305,6 +296,11 @@
         End If
 
     End Sub
+
+    Protected Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Response.Redirect("InicioSession.aspx")
+    End Sub
+
     Protected Sub Calendar1_DayRender(sender As Object, e As DayRenderEventArgs) Handles Calendar1.DayRender
 
         MinDate = Calendar2.SelectedDate

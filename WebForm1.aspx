@@ -10,6 +10,9 @@
         .auto-style1 {
             margin-left: 40px;
         }
+        .auto-style2 {
+            margin-left: 440px;
+        }
     </style>
 </head>
 <body>
@@ -24,13 +27,26 @@
         <asp:Button ID="Button2" runat="server" Text="Realizar Reserva" Height="113px" Width="230px" />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="Button3" runat="server" Text="Modificar Reserva" Height="113px" Width="230px" />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         </p>
+        <p class="auto-style1">
+            <asp:Button ID="Button5" runat="server" Text="Ver Mapa" />
+        <br />
+        </p>
+        <p class="auto-style2">
+            <asp:Button ID="Button4" runat="server" Text="Cerrar La Sessión" />
+        <br />
+        </p>
+        <p class="auto-style1">
+            &nbsp;</p>
+        <p class="auto-style1">
+            &nbsp;</p>
+        <p class="auto-style1">
+        <br />
+        </p>
+        <p class="auto-style1">
+            &nbsp;</p>
+        <p class="auto-style1">
+            &nbsp;</p>
     </form>
 </body>
 </html>

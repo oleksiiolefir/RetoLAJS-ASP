@@ -16,7 +16,6 @@ Public Class WebForm4
             MinDate = Date.Today
             MaxDate = Calendar1.SelectedDate
             RellenarReservas()
-            llamodatos()
         End If
     End Sub
 
@@ -38,22 +37,6 @@ Public Class WebForm4
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-    End Sub
-    Protected Sub llamodatos()
-        Try
-            Dim cnn As New MySqlConnection()
-            cnn.ConnectionString = Session("Conectar")
-            Dim ds As New DataSet
-            Dim da As New MySqlDataAdapter("select * from usuario ", cnn)
-            da.Fill(ds, "usuario")
-            GridView1.DataSource = ds.Tables("usuario")
-            GridView1.DataBind()
-            Label1.Text = "SE HA CONECTADO"
-
-        Catch ex As Exception
-            Label1.Text = "NOOOOOOOOO"
-        End Try
-
     End Sub
 
     Protected Sub GridView3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GridView3.SelectedIndexChanged
@@ -227,6 +210,11 @@ Public Class WebForm4
             MsgBox("Error en hacer la select ")
         End Try
     End Sub
+
+    Protected Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Response.Redirect("InicioSession.aspx")
+    End Sub
+
     Protected Sub Calendar1_DayRender(sender As Object, e As DayRenderEventArgs) Handles Calendar1.DayRender
         MinDate = Date.Today
         MaxDate = Calendar2.SelectedDate

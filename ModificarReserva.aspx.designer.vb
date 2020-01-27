@@ -32,13 +32,13 @@ Partial Public Class WebForm4
     Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''Control GridView1.
+    '''Control Button3.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents GridView1 As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents Button3 As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
     '''Control Calendar1.
@@ -84,13 +84,4 @@ Partial Public Class WebForm4
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents GridView3 As Global.System.Web.UI.WebControls.GridView
-    
-    '''<summary>
-    '''Control GridView4.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents GridView4 As Global.System.Web.UI.WebControls.GridView
 End Class
