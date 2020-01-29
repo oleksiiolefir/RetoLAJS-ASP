@@ -52,6 +52,9 @@
     <Reference Include="eCryptography, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Eramake.eCryptography.1.1.6\lib\net45\eCryptography.dll</HintPath>
     </Reference>
+    <Reference Include="GoogleMaps, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\GoogleMapControl.8.0.0\lib\net40\GoogleMaps.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="OC.Core, Version=2.0.0.17347, Culture=neutral, PublicKeyToken=21d5b409dafb75d2, processorArchitecture=MSIL">
       <HintPath>packages\OC.Core.2.0.0\lib\net40\OC.Core.dll</HintPath>
@@ -113,6 +116,324 @@
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
     <Content Include="bin\RetoASP.dll" />
     <Content Include="bin\RetoASP.pdb" />
+    <Content Include="css\AdminLTE.css" />
+    <Content Include="css\bootstrap-slider\slider.css" />
+    <Content Include="css\bootstrap-wysihtml5\bootstrap3-wysihtml5.css" />
+    <Content Include="css\bootstrap-wysihtml5\bootstrap3-wysihtml5.min.css" />
+    <Content Include="css\colorpicker\bootstrap-colorpicker.css" />
+    <Content Include="css\colorpicker\bootstrap-colorpicker.min.css" />
+    <Content Include="css\datatables\dataTables.bootstrap.css" />
+    <Content Include="css\datatables\images\sort_asc.png" />
+    <Content Include="css\datatables\images\sort_asc_disabled.png" />
+    <Content Include="css\datatables\images\sort_both.png" />
+    <Content Include="css\datatables\images\sort_desc.png" />
+    <Content Include="css\datatables\images\sort_desc_disabled.png" />
+    <Content Include="css\datepicker\datepicker3.css" />
+    <Content Include="css\daterangepicker\daterangepicker-bs3.css" />
+    <Content Include="css\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="css\iCheck\all.css" />
+    <Content Include="css\iCheck\flat\aero%402x.png" />
+    <Content Include="css\iCheck\flat\aero.css" />
+    <Content Include="css\iCheck\flat\aero.png" />
+    <Content Include="css\iCheck\flat\blue%402x.png" />
+    <Content Include="css\iCheck\flat\blue.css" />
+    <Content Include="css\iCheck\flat\blue.png" />
+    <Content Include="css\iCheck\flat\flat%402x.png" />
+    <Content Include="css\iCheck\flat\flat.css" />
+    <Content Include="css\iCheck\flat\flat.png" />
+    <Content Include="css\iCheck\flat\green%402x.png" />
+    <Content Include="css\iCheck\flat\green.css" />
+    <Content Include="css\iCheck\flat\green.png" />
+    <Content Include="css\iCheck\flat\grey%402x.png" />
+    <Content Include="css\iCheck\flat\grey.css" />
+    <Content Include="css\iCheck\flat\grey.png" />
+    <Content Include="css\iCheck\flat\orange%402x.png" />
+    <Content Include="css\iCheck\flat\orange.css" />
+    <Content Include="css\iCheck\flat\orange.png" />
+    <Content Include="css\iCheck\flat\pink%402x.png" />
+    <Content Include="css\iCheck\flat\pink.css" />
+    <Content Include="css\iCheck\flat\pink.png" />
+    <Content Include="css\iCheck\flat\purple%402x.png" />
+    <Content Include="css\iCheck\flat\purple.css" />
+    <Content Include="css\iCheck\flat\purple.png" />
+    <Content Include="css\iCheck\flat\red%402x.png" />
+    <Content Include="css\iCheck\flat\red.css" />
+    <Content Include="css\iCheck\flat\red.png" />
+    <Content Include="css\iCheck\flat\yellow%402x.png" />
+    <Content Include="css\iCheck\flat\yellow.css" />
+    <Content Include="css\iCheck\flat\yellow.png" />
+    <Content Include="css\iCheck\flat\_all.css" />
+    <Content Include="css\iCheck\futurico\futurico%402x.png" />
+    <Content Include="css\iCheck\futurico\futurico.css" />
+    <Content Include="css\iCheck\futurico\futurico.png" />
+    <Content Include="css\iCheck\line\aero.css" />
+    <Content Include="css\iCheck\line\blue.css" />
+    <Content Include="css\iCheck\line\green.css" />
+    <Content Include="css\iCheck\line\grey.css" />
+    <Content Include="css\iCheck\line\line%402x.png" />
+    <Content Include="css\iCheck\line\line.css" />
+    <Content Include="css\iCheck\line\line.png" />
+    <Content Include="css\iCheck\line\orange.css" />
+    <Content Include="css\iCheck\line\pink.css" />
+    <Content Include="css\iCheck\line\purple.css" />
+    <Content Include="css\iCheck\line\red.css" />
+    <Content Include="css\iCheck\line\yellow.css" />
+    <Content Include="css\iCheck\line\_all.css" />
+    <Content Include="css\iCheck\minimal\aero%402x.png" />
+    <Content Include="css\iCheck\minimal\aero.css" />
+    <Content Include="css\iCheck\minimal\aero.png" />
+    <Content Include="css\iCheck\minimal\blue%402x.png" />
+    <Content Include="css\iCheck\minimal\blue.css" />
+    <Content Include="css\iCheck\minimal\blue.png" />
+    <Content Include="css\iCheck\minimal\green%402x.png" />
+    <Content Include="css\iCheck\minimal\green.css" />
+    <Content Include="css\iCheck\minimal\green.png" />
+    <Content Include="css\iCheck\minimal\grey%402x.png" />
+    <Content Include="css\iCheck\minimal\grey.css" />
+    <Content Include="css\iCheck\minimal\grey.png" />
+    <Content Include="css\iCheck\minimal\minimal%402x.png" />
+    <Content Include="css\iCheck\minimal\minimal.css" />
+    <Content Include="css\iCheck\minimal\minimal.png" />
+    <Content Include="css\iCheck\minimal\orange%402x.png" />
+    <Content Include="css\iCheck\minimal\orange.css" />
+    <Content Include="css\iCheck\minimal\orange.png" />
+    <Content Include="css\iCheck\minimal\pink%402x.png" />
+    <Content Include="css\iCheck\minimal\pink.css" />
+    <Content Include="css\iCheck\minimal\pink.png" />
+    <Content Include="css\iCheck\minimal\purple%402x.png" />
+    <Content Include="css\iCheck\minimal\purple.css" />
+    <Content Include="css\iCheck\minimal\purple.png" />
+    <Content Include="css\iCheck\minimal\red%402x.png" />
+    <Content Include="css\iCheck\minimal\red.css" />
+    <Content Include="css\iCheck\minimal\red.png" />
+    <Content Include="css\iCheck\minimal\yellow%402x.png" />
+    <Content Include="css\iCheck\minimal\yellow.css" />
+    <Content Include="css\iCheck\minimal\yellow.png" />
+    <Content Include="css\iCheck\minimal\_all.css" />
+    <Content Include="css\iCheck\polaris\polaris%402x.png" />
+    <Content Include="css\iCheck\polaris\polaris.css" />
+    <Content Include="css\iCheck\polaris\polaris.png" />
+    <Content Include="css\iCheck\square\aero%402x.png" />
+    <Content Include="css\iCheck\square\aero.css" />
+    <Content Include="css\iCheck\square\aero.png" />
+    <Content Include="css\iCheck\square\blue%402x.png" />
+    <Content Include="css\iCheck\square\blue.css" />
+    <Content Include="css\iCheck\square\blue.png" />
+    <Content Include="css\iCheck\square\green%402x.png" />
+    <Content Include="css\iCheck\square\green.css" />
+    <Content Include="css\iCheck\square\green.png" />
+    <Content Include="css\iCheck\square\grey%402x.png" />
+    <Content Include="css\iCheck\square\grey.css" />
+    <Content Include="css\iCheck\square\grey.png" />
+    <Content Include="css\iCheck\square\orange%402x.png" />
+    <Content Include="css\iCheck\square\orange.css" />
+    <Content Include="css\iCheck\square\orange.png" />
+    <Content Include="css\iCheck\square\pink%402x.png" />
+    <Content Include="css\iCheck\square\pink.css" />
+    <Content Include="css\iCheck\square\pink.png" />
+    <Content Include="css\iCheck\square\purple%402x.png" />
+    <Content Include="css\iCheck\square\purple.css" />
+    <Content Include="css\iCheck\square\purple.png" />
+    <Content Include="css\iCheck\square\red%402x.png" />
+    <Content Include="css\iCheck\square\red.css" />
+    <Content Include="css\iCheck\square\red.png" />
+    <Content Include="css\iCheck\square\square%402x.png" />
+    <Content Include="css\iCheck\square\square.css" />
+    <Content Include="css\iCheck\square\square.png" />
+    <Content Include="css\iCheck\square\yellow%402x.png" />
+    <Content Include="css\iCheck\square\yellow.css" />
+    <Content Include="css\iCheck\square\yellow.png" />
+    <Content Include="css\iCheck\square\_all.css" />
+    <Content Include="css\images\animated-overlay.gif" />
+    <Content Include="css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="css\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="css\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="css\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="css\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="css\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="css\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="css\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="css\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="css\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="css\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="css\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="css\ionslider\ion.rangeSlider.css" />
+    <Content Include="css\ionslider\ion.rangeSlider.skinFlat.css" />
+    <Content Include="css\ionslider\ion.rangeSlider.skinNice.css" />
+    <Content Include="css\jvectormap\jquery-jvectormap-1.2.2.css" />
+    <Content Include="css\morris\morris.css" />
+    <Content Include="css\timepicker\bootstrap-timepicker.css" />
+    <Content Include="css\timepicker\bootstrap-timepicker.min.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="ModificarReservaB.aspx" />
+    <Content Include="RealizarReservaB.aspx" />
+    <Content Include="RegistroB.aspx" />
+    <Content Include="VerAlojamientosB.aspx" />
+    <Content Include="WebForm1B.aspx" />
+    <Content Include="img\ajax-loader.gif" />
+    <Content Include="img\ajax-loader1.gif" />
+    <Content Include="img\avatar.png" />
+    <Content Include="img\avatar04.png" />
+    <Content Include="img\avatar2.png" />
+    <Content Include="img\avatar3.png" />
+    <Content Include="img\avatar5.png" />
+    <Content Include="img\avatar9.jpg" />
+    <Content Include="img\blur-background04.jpg" />
+    <Content Include="img\blur-background08.jpg" />
+    <Content Include="img\blur-background09.jpg" />
+    <Content Include="img\booking.png" />
+    <Content Include="img\bootstrap-colorpicker\alpha-horizontal.png" />
+    <Content Include="img\bootstrap-colorpicker\alpha.png" />
+    <Content Include="img\bootstrap-colorpicker\hue-horizontal.png" />
+    <Content Include="img\bootstrap-colorpicker\hue.png" />
+    <Content Include="img\bootstrap-colorpicker\saturation.png" />
+    <Content Include="img\credit\american-express.png" />
+    <Content Include="img\credit\cirrus.png" />
+    <Content Include="img\credit\mastercard.png" />
+    <Content Include="img\credit\mestro.png" />
+    <Content Include="img\credit\paypal.png" />
+    <Content Include="img\credit\paypal2.png" />
+    <Content Include="img\credit\visa.png" />
+    <Content Include="img\FotoDNIAlba.PNG" />
+    <Content Include="img\home.png" />
+    <Content Include="img\home.svg" />
+    <Content Include="img\icons.png" />
+    <Content Include="img\lajsLogo1.ico" />
+    <Content Include="img\map.png" />
+    <Content Include="img\mapa.png" />
+    <Content Include="img\off-button.png" />
+    <Content Include="img\sprite-skin-flat.png" />
+    <Content Include="img\sprite-skin-nice.png" />
+    <Content Include="img\user-bg.png" />
+    <Content Include="img\user.jpg" />
+    <Content Include="img\user2.jpg" />
+    <Content Include="js\AdminLTE\app.js" />
+    <Content Include="js\AdminLTE\dashboard.js" />
+    <Content Include="js\AdminLTE\demo.js" />
+    <Content Include="js\plugins\bootstrap-slider\bootstrap-slider.js" />
+    <Content Include="js\plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.all.min.js" />
+    <Content Include="js\plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.js" />
+    <Content Include="js\plugins\colorpicker\bootstrap-colorpicker.js" />
+    <Content Include="js\plugins\colorpicker\bootstrap-colorpicker.min.js" />
+    <Content Include="js\plugins\datatables\dataTables.bootstrap.js" />
+    <Content Include="js\plugins\datatables\jquery.dataTables.js" />
+    <Content Include="js\plugins\datepicker\bootstrap-datepicker.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.ar.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.az.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.bg.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.ca.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.cs.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.cy.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.da.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.de.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.el.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.es.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.et.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.fa.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.fi.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.fr.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.gl.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.he.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.hr.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.hu.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.id.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.is.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.it.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.ja.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.ka.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.kk.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.kr.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.lt.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.lv.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.mk.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.ms.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.nb.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.nl-BE.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.nl.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.no.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.pl.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.pt-BR.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.pt.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.ro.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.rs-latin.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.rs.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.ru.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.sk.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.sl.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.sq.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.sv.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.sw.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.th.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.tr.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.ua.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.vi.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.zh-CN.js" />
+    <Content Include="js\plugins\datepicker\locales\bootstrap-datepicker.zh-TW.js" />
+    <Content Include="js\plugins\daterangepicker\calendario.js" />
+    <Content Include="js\plugins\daterangepicker\daterangepicker.js" />
+    <Content Include="js\plugins\flot\excanvas.js" />
+    <Content Include="js\plugins\flot\excanvas.min.js" />
+    <Content Include="js\plugins\flot\jquery.colorhelpers.js" />
+    <Content Include="js\plugins\flot\jquery.colorhelpers.min.js" />
+    <Content Include="js\plugins\flot\jquery.flot.canvas.js" />
+    <Content Include="js\plugins\flot\jquery.flot.canvas.min.js" />
+    <Content Include="js\plugins\flot\jquery.flot.categories.js" />
+    <Content Include="js\plugins\flot\jquery.flot.categories.min.js" />
+    <Content Include="js\plugins\flot\jquery.flot.crosshair.js" />
+    <Content Include="js\plugins\flot\jquery.flot.crosshair.min.js" />
+    <Content Include="js\plugins\flot\jquery.flot.errorbars.js" />
+    <Content Include="js\plugins\flot\jquery.flot.errorbars.min.js" />
+    <Content Include="js\plugins\flot\jquery.flot.fillbetween.js" />
+    <Content Include="js\plugins\flot\jquery.flot.fillbetween.min.js" />
+    <Content Include="js\plugins\flot\jquery.flot.image.js" />
+    <Content Include="js\plugins\flot\jquery.flot.image.min.js" />
+    <Content Include="js\plugins\flot\jquery.flot.js" />
+    <Content Include="js\plugins\flot\jquery.flot.min.js" />
+    <Content Include="js\plugins\flot\jquery.flot.navigate.js" />
+    <Content Include="js\plugins\flot\jquery.flot.navigate.min.js" />
+    <Content Include="js\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="js\plugins\flot\jquery.flot.pie.min.js" />
+    <Content Include="js\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="js\plugins\flot\jquery.flot.resize.min.js" />
+    <Content Include="js\plugins\flot\jquery.flot.selection.js" />
+    <Content Include="js\plugins\flot\jquery.flot.selection.min.js" />
+    <Content Include="js\plugins\flot\jquery.flot.stack.js" />
+    <Content Include="js\plugins\flot\jquery.flot.stack.min.js" />
+    <Content Include="js\plugins\flot\jquery.flot.symbol.js" />
+    <Content Include="js\plugins\flot\jquery.flot.symbol.min.js" />
+    <Content Include="js\plugins\flot\jquery.flot.threshold.js" />
+    <Content Include="js\plugins\flot\jquery.flot.threshold.min.js" />
+    <Content Include="js\plugins\flot\jquery.flot.time.js" />
+    <Content Include="js\plugins\flot\jquery.flot.time.min.js" />
+    <Content Include="js\plugins\iCheck\icheck.js" />
+    <Content Include="js\plugins\iCheck\icheck.min.js" />
+    <Content Include="js\plugins\input-mask\jquery.inputmask.date.extensions.js" />
+    <Content Include="js\plugins\input-mask\jquery.inputmask.extensions.js" />
+    <Content Include="js\plugins\input-mask\jquery.inputmask.js" />
+    <Content Include="js\plugins\input-mask\jquery.inputmask.numeric.extensions.js" />
+    <Content Include="js\plugins\input-mask\jquery.inputmask.phone.extensions.js" />
+    <Content Include="js\plugins\input-mask\jquery.inputmask.regex.extensions.js" />
+    <Content Include="js\plugins\input-mask\phone-codes\readme.txt" />
+    <Content Include="js\plugins\ionslider\ion.rangeSlider.min.js" />
+    <Content Include="js\plugins\jqueryKnob\jquery.knob.js" />
+    <Content Include="js\plugins\jvectormap\jquery-jvectormap-1.2.2.min.js" />
+    <Content Include="js\plugins\jvectormap\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="js\plugins\misc\html5shiv.js" />
+    <Content Include="js\plugins\misc\jquery.ba-resize.min.js" />
+    <Content Include="js\plugins\misc\jquery.placeholder.js" />
+    <Content Include="js\plugins\misc\modernizr.min.js" />
+    <Content Include="js\plugins\misc\respond.min.js" />
+    <Content Include="js\plugins\morris\morris.js" />
+    <Content Include="js\plugins\morris\morris.min.js" />
+    <Content Include="js\plugins\slimScroll\jquery.slimscroll.js" />
+    <Content Include="js\plugins\slimScroll\jquery.slimscroll.min.js" />
+    <Content Include="js\plugins\sparkline\jquery.sparkline.js" />
+    <Content Include="js\plugins\sparkline\jquery.sparkline.min.js" />
+    <Content Include="js\plugins\timepicker\bootstrap-timepicker.js" />
+    <Content Include="js\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\tools\Roslyn45\csc.exe" />
@@ -169,15 +490,52 @@
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\tools\RoslynLatest\System.Xml.XPath.XDocument.dll" />
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\tools\RoslynLatest\vbc.exe" />
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\tools\RoslynLatest\VBCSCompiler.exe" />
-    <Content Include="Registro.aspx" />
+    <Content Include="FORMS\Registro.aspx" />
     <Content Include="Web.config" />
-    <Content Include="WebForm1.aspx" />
-    <Content Include="VerAlojamientos.aspx" />
-    <Content Include="RealizarReserva.aspx" />
-    <Content Include="ModificarReserva.aspx" />
-    <Content Include="InicioSession.aspx" />
+    <Content Include="FORMS\WebForm1.aspx" />
+    <Content Include="FORMS\VerAlojamientos.aspx" />
+    <Content Include="FORMS\RealizarReserva.aspx" />
+    <Content Include="FORMS\ModificarReserva.aspx" />
+    <Content Include="FORMS\InicioSession.aspx" />
+    <Content Include="FORMS\Mapa.aspx" />
+    <Content Include="InicioSessionB.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModificarReservaB.aspx.designer.vb">
+      <DependentUpon>ModificarReservaB.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarReservaB.aspx.vb">
+      <DependentUpon>ModificarReservaB.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="RealizarReservaB.aspx.designer.vb">
+      <DependentUpon>RealizarReservaB.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RealizarReservaB.aspx.vb">
+      <DependentUpon>RealizarReservaB.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="RegistroB.aspx.designer.vb">
+      <DependentUpon>RegistroB.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroB.aspx.vb">
+      <DependentUpon>RegistroB.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="VerAlojamientosB.aspx.designer.vb">
+      <DependentUpon>VerAlojamientosB.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerAlojamientosB.aspx.vb">
+      <DependentUpon>VerAlojamientosB.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1B.aspx.designer.vb">
+      <DependentUpon>WebForm1B.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1B.aspx.vb">
+      <DependentUpon>WebForm1B.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -197,47 +555,68 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Registro.aspx.designer.vb">
+    <Compile Include="FORMS\Registro.aspx.designer.vb">
       <DependentUpon>Registro.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Registro.aspx.vb">
+    <Compile Include="FORMS\Registro.aspx.vb">
       <DependentUpon>Registro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.vb">
+    <Compile Include="Site1.Master.designer.vb">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site1.Master.vb">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FORMS\WebForm1.aspx.designer.vb">
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm1.aspx.vb">
+    <Compile Include="FORMS\WebForm1.aspx.vb">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="VerAlojamientos.aspx.designer.vb">
+    <Compile Include="FORMS\VerAlojamientos.aspx.designer.vb">
       <DependentUpon>VerAlojamientos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="VerAlojamientos.aspx.vb">
+    <Compile Include="FORMS\VerAlojamientos.aspx.vb">
       <DependentUpon>VerAlojamientos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RealizarReserva.aspx.designer.vb">
+    <Compile Include="FORMS\RealizarReserva.aspx.designer.vb">
       <DependentUpon>RealizarReserva.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RealizarReserva.aspx.vb">
+    <Compile Include="FORMS\RealizarReserva.aspx.vb">
       <DependentUpon>RealizarReserva.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ModificarReserva.aspx.designer.vb">
+    <Compile Include="FORMS\ModificarReserva.aspx.designer.vb">
       <DependentUpon>ModificarReserva.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ModificarReserva.aspx.vb">
+    <Compile Include="FORMS\ModificarReserva.aspx.vb">
       <DependentUpon>ModificarReserva.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="InicioSession.aspx.designer.vb">
+    <Compile Include="FORMS\InicioSession.aspx.designer.vb">
       <DependentUpon>InicioSession.aspx</DependentUpon>
     </Compile>
-    <Compile Include="InicioSession.aspx.vb">
+    <Compile Include="FORMS\InicioSession.aspx.vb">
       <DependentUpon>InicioSession.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FORMS\Mapa.aspx.designer.vb">
+      <DependentUpon>Mapa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FORMS\Mapa.aspx.vb">
+      <DependentUpon>Mapa.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="InicioSessionB.aspx.designer.vb">
+      <DependentUpon>InicioSessionB.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InicioSessionB.aspx.vb">
+      <DependentUpon>InicioSessionB.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -249,6 +628,18 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="css\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="css\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="img\bootstrap-colorpicker\Thumbs.db" />
+    <Content Include="img\credit\Thumbs.db" />
+    <Content Include="img\Thumbs.db" />
+    <Content Include="js\plugins\input-mask\phone-codes\phone-be.json" />
+    <Content Include="js\plugins\input-mask\phone-codes\phone-codes.json" />
+    <Content Include="js\plugins\slimScroll\slimScroll.jquery.json" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -296,6 +687,7 @@
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\tools\RoslynLatest\vbc.exe.config" />
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\tools\RoslynLatest\vbc.rsp" />
     <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\tools\RoslynLatest\VBCSCompiler.exe.config" />
+    <Content Include="Site1.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
