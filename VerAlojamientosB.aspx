@@ -1,5 +1,13 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site1.Master" CodeBehind="VerAlojamientosB.aspx.vb" Inherits="RetoASP.VerAlojamientosB" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+    .auto-style1 {
+        margin-left: 40px;
+    }
+    .auto-style2 {
+        margin-left: 200px;
+    }
+</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      
@@ -42,12 +50,27 @@
         <br />
         <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
         <br />
-        <br />
-            <asp:GridView ID="GridView1" runat="server">
-                <Columns>
-                    <asp:ButtonField   ButtonType="Button" CommandName="Select" HeaderText="Mapa" ShowHeader="True" Text="Ver Mapa" />
-                </Columns>
-            </asp:GridView>
+<br />
+<br />
+<asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="Black" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellSpacing="2">
+    <Columns>
+        <asp:ButtonField   ButtonType="Button" CommandName="Select" HeaderText="Mapa" ShowHeader="True" Text="Ver Mapa" />
+    </Columns>
+    <FooterStyle BackColor="#CCCCCC" />
+    <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+    <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+    <RowStyle BackColor="White" />
+    <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+    <SortedAscendingCellStyle BackColor="#F1F1F1" />
+    <SortedAscendingHeaderStyle BackColor="#808080" />
+    <SortedDescendingCellStyle BackColor="#CAC9C9" />
+    <SortedDescendingHeaderStyle BackColor="#383838" />
+</asp:GridView>
+<div class="auto-style2">
+</div>
+&nbsp;<div class="auto-style1">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</div>
         <br />
         <br />
         <br />
