@@ -4,7 +4,7 @@ Public Class InicioSessionB
 
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        Context.Session("parametro") = ""
     End Sub
 
 
@@ -16,7 +16,11 @@ Public Class InicioSessionB
             '' Outside of Web Forms page class, use HttpContext.Current.HttpContext Context = HttpContext.Current;  
             ''Context.Session["FirstName"] = firstName;  
             ''firstName = (String)(Context.Session["FirstName"]);  
-            Response.Redirect("WebForm1B.aspx?parametro=" + TextBox1.Text)
+            ' Response.Redirect("WebForm1B.aspx?parametro=" + TextBox1.Text)
+            Context.Session("parametro") = TextBox1.Text
+            TextBox1.Text = ""
+            TextBox2.Text = ""
+
         Else
             MsgBox("Datos erroneos")
             TextBox1.Text = ""

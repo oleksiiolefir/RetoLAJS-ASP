@@ -19,7 +19,7 @@
     Protected Sub RellenarReservas()
         Try
 
-            username = Request.Params("parametro")
+            username = (Context.Session("parametro")).ToString
             Dim cnn As New MySqlConnection()
             cnn.ConnectionString = Session("Conectar")
             Dim sqlsent As String = "SELECT fechaEntrada As 'Fecha De Entrada',fechaSalida As 'Fecha De Salida',nombre As 'Nombre del Alojamiento',idUsr FROM alojamiento,reserva 
@@ -48,7 +48,7 @@
         Try
             Dim nombre As String = Session("idAloj")
             MsgBox("--------------------" + nombre)
-            username = Request.Params("parametro")
+            username = (Context.Session("parametro")).ToString
             MsgBox("--------------------" + username)
             Dim connString As String = "server= 192.168.101.35; database=alojamientos ; user id=lajs; password=lajs"
             Dim sqlsentence As String = " SELECT idRes FROM `reserva` WHERE idUsr = (select idUsr from usuario where username = @username) And idAloj = (select idAloj from alojamiento where nombre = @nombre)"
@@ -115,7 +115,7 @@
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim valor As String = Request.Params("parametro")
+        Dim valor As String = (Context.Session("parametro")).ToString
         Response.Redirect("WebForm1B.aspx?parametro=" + valor)
     End Sub
 
@@ -207,7 +207,8 @@
     End Sub
 
     Protected Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Response.Redirect("InicioSessionB.aspx")
+        Dim valor As String = ""
+        Response.Redirect("InicioSessionB.aspx?parametro=" + valor)
     End Sub
 
     Protected Sub Calendar1_DayRender(sender As Object, e As DayRenderEventArgs) Handles Calendar1.DayRender

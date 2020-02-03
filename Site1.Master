@@ -117,14 +117,26 @@
         <aside class="left-side sidebar-offcanvas">
             <section class="sidebar"> 
                 <div class="user-panel">
-                    <div class="pull-left image">
-                        <img src="img/lajsLogo1.ico" class="img-circle" alt="User Image"/>
+                    <div class="pull-left image" >
+                        <img   src="img/lajsLogo1.ico" class="img-circle" alt="User Image" />
                     </div>  
                     <div class="pull-left into">
                         <p>Bienvenido SR(A). DANI</p>
                     </div>                
                 </div>
                 <ul class="sidebar-menu">
+                     <li>
+                         <a href="InicioSessionB.aspx">
+                            <i class="fa fa-th"></i>
+                            <span>Iniciar Session</span>
+                        </a>
+                    </li>  
+                     <li>
+                         <a href="VerAlojamientosB.aspx">
+                            <i class="fa fa-th"></i>
+                            <span>Ver Alojamientos</span>
+                        </a>
+                    </li>  
                     <li class="active">
                         <a href="RealizarReservaB.aspx">
                             <i class="fa fa-dashboard"></i>
@@ -136,13 +148,7 @@
                             <i class="fa fa-th"></i>
                             <span>Modificar Reserva</span>
                         </a>
-                    </li>
-                    <li>
-                         <a href="InicioSessionB.aspx">
-                            <i class="fa fa-th"></i>
-                            <span>Iniciar Session</span>
-                        </a>
-                    </li>        
+                    </li>            
                 </ul>
             </section>
         </aside>

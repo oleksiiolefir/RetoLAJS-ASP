@@ -18,7 +18,14 @@
             Llenar_DropDownList1()
             Llenar_DropDownList2()
             rellenoGrid(localidad, capacidad, tipo)
-            Label1.Text = Request.Params("parametro")
+
+            'Request.Params("parametro")
+            Dim par As String
+            par = (Context.Session("parametro"))
+
+            Label1.Text = par
+
+
             MinDate = Date.Today
             MaxDate = Calendar1.SelectedDate
 
@@ -136,117 +143,125 @@
         Dim nom, username As String
         nom = Session("nombre")
         MsgBox(nom)
-        username = Request.Params("parametro")
-        MsgBox(username)
-        Dim idAloj, idUsr, idRes As Integer
-        Try
-            Dim connString As String = "server= 192.168.101.35; database=alojamientos ; user id=lajs; password=lajs"
+        username = (Context.Session("parametro")).ToString
+        If username.Equals("") Then
+            MsgBox("No se puede hacer reservas sin loggearse")
 
-            Dim sqlQuery As String = "select idUsr from usuario where username = @username"
-            Dim sqlQuery2 As String = "select idAloj from alojamiento where nombre= @name"
-            Dim sqlQuery3 As String = "select max(idRes) from reserva"
-            'SELECT * FROM `reserva` where fechaEntrada >= "2020-01-22" And fechaSalida <="2020-01-31" AND idAloj = 1
-            Dim sqlQuery4 As String = "SELECT * FROM `reserva` where idAloj = @idAloj And fechaEntrada BETWEEN @fechaEntrada And @fechaSalida OR fechaSalida BETWEEN @fechaEntrada And @fechaSalida And idUsr = @idUsr And idAloj = @idAloj "
+        Else
 
-            Using sqlConn As New MySqlConnection(connString)
-                Using sqlComm As New MySqlCommand() 'hay que usar un comando por cada select 
-                    With sqlComm
-                        .Connection = sqlConn
-                        .CommandText = sqlQuery
-                        .CommandType = CommandType.Text
-                        .Parameters.AddWithValue("@username", username)
-                    End With
-                    Try
-                        sqlConn.Open()
-                        Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
-                        While sqlReader.Read()
-                            idUsr = sqlReader("idUsr")
-                        End While
+            Dim idAloj, idUsr, idRes As Integer
+            Try
+                Dim connString As String = "server= 192.168.101.35; database=alojamientos ; user id=lajs; password=lajs"
 
-                    Catch ex As MySqlException
-                        MsgBox("Error no encuentra el id de Usuario")
-                    End Try
-                End Using
-                MsgBox(idUsr)
-                Using sqlComm2 As New MySqlCommand() 'hay que usar un comando por cada select
-                    With sqlComm2
-                        .Connection = sqlConn
-                        .CommandText = sqlQuery2
-                        .CommandType = CommandType.Text
-                        .Parameters.AddWithValue("@name", nom)
-                    End With
-                    Try
+                Dim sqlQuery As String = "select idUsr from usuario where username = @username"
+                Dim sqlQuery2 As String = "select idAloj from alojamiento where nombre= @name"
+                Dim sqlQuery3 As String = "select max(idRes) from reserva"
+                'SELECT * FROM `reserva` where fechaEntrada >= "2020-01-22" And fechaSalida <="2020-01-31" AND idAloj = 1
+                Dim sqlQuery4 As String = "SELECT * FROM `reserva` where idAloj = @idAloj And fechaEntrada BETWEEN @fechaEntrada And @fechaSalida OR fechaSalida BETWEEN @fechaEntrada And @fechaSalida And idUsr = @idUsr And idAloj = @idAloj "
 
-                        Dim sqlReader2 As MySqlDataReader = sqlComm2.ExecuteReader()
-                        While sqlReader2.Read()
-                            idAloj = sqlReader2("idAloj")
-                            'MsgBox(idAloj)
-                        End While
+                Using sqlConn As New MySqlConnection(connString)
+                    Using sqlComm As New MySqlCommand() 'hay que usar un comando por cada select 
+                        With sqlComm
+                            .Connection = sqlConn
+                            .CommandText = sqlQuery
+                            .CommandType = CommandType.Text
+                            .Parameters.AddWithValue("@username", username)
+                        End With
+                        Try
+                            sqlConn.Open()
+                            Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
+                            While sqlReader.Read()
+                                idUsr = sqlReader("idUsr")
+                            End While
 
-                    Catch ex As MySqlException
-                        MsgBox("Error no encuentra el id de Alojamiento")
-                    End Try
-                End Using
-                Using sqlComm3 As New MySqlCommand() 'hay que usar un comando por cada select
-                    With sqlComm3
-                        .Connection = sqlConn
-                        .CommandText = sqlQuery3
-                        .CommandType = CommandType.Text
-                    End With
-                    Try
+                        Catch ex As MySqlException
+                            MsgBox("Error no encuentra el id de Usuario")
+                        End Try
+                    End Using
+                    MsgBox(idUsr)
+                    Using sqlComm2 As New MySqlCommand() 'hay que usar un comando por cada select
+                        With sqlComm2
+                            .Connection = sqlConn
+                            .CommandText = sqlQuery2
+                            .CommandType = CommandType.Text
+                            .Parameters.AddWithValue("@name", nom)
+                        End With
+                        Try
 
-                        Dim sqlReader3 As MySqlDataReader = sqlComm3.ExecuteReader()
-                        While sqlReader3.Read()
-                            If sqlReader3.IsDBNull(0) Then
-                                idRes = 0
+                            Dim sqlReader2 As MySqlDataReader = sqlComm2.ExecuteReader()
+                            While sqlReader2.Read()
+                                idAloj = sqlReader2("idAloj")
+                                'MsgBox(idAloj)
+                            End While
+
+                        Catch ex As MySqlException
+                            MsgBox("Error no encuentra el id de Alojamiento")
+                        End Try
+                    End Using
+                    Using sqlComm3 As New MySqlCommand() 'hay que usar un comando por cada select
+                        With sqlComm3
+                            .Connection = sqlConn
+                            .CommandText = sqlQuery3
+                            .CommandType = CommandType.Text
+                        End With
+                        Try
+
+                            Dim sqlReader3 As MySqlDataReader = sqlComm3.ExecuteReader()
+                            While sqlReader3.Read()
+                                If sqlReader3.IsDBNull(0) Then
+                                    idRes = 0
+                                Else
+                                    idRes = sqlReader3("max(idRes)")
+                                End If
+
+                                MsgBox(idRes)
+                            End While
+
+                        Catch ex As MySqlException
+                            MsgBox("Error al sacar el maximo id de reservas")
+                        End Try
+                    End Using
+                    Using sqlComm4 As New MySqlCommand() 'hay que usar un comando por cada select
+                        Dim fechIni As Date = Calendar2.SelectedDate.ToShortDateString
+                        Dim fechaFin As Date = Calendar1.SelectedDate.ToShortDateString
+                        fechaInicio = Format(fechIni, "yyyy-MM-dd")
+                        fechaFinal = Format(fechaFin, "yyyy-MM-dd")
+                        With sqlComm4
+                            .Connection = sqlConn
+                            .CommandText = sqlQuery4
+                            .CommandType = CommandType.Text
+                            .Parameters.AddWithValue("@fechaEntrada", fechaInicio)
+                            .Parameters.AddWithValue("@fechaSalida", fechaFinal)
+                            .Parameters.AddWithValue("@idAloj", idAloj)
+                            .Parameters.AddWithValue("@idUsr", idUsr)
+                        End With
+                        Try
+                            Dim sqlReader4 As MySqlDataReader = sqlComm4.ExecuteReader()
+
+                            If Not sqlReader4.HasRows Then
+                                MsgBox("Se puede hacer la reserva")
                             Else
-                                idRes = sqlReader3("max(idRes)")
+                                MsgBox("No se puede hace la reserva entre estas fechas")
+                                fechaInicio = ""
+                                fechaFinal = ""
                             End If
 
-                            MsgBox(idRes)
-                        End While
-
-                    Catch ex As MySqlException
-                        MsgBox("Error al sacar el maximo id de reservas")
-                    End Try
+                        Catch ex As MySqlException
+                            MsgBox("Error al sacar el rango de fechas ")
+                        End Try
+                    End Using
                 End Using
-                Using sqlComm4 As New MySqlCommand() 'hay que usar un comando por cada select
-                    Dim fechIni As Date = Calendar2.SelectedDate.ToShortDateString
-                    Dim fechaFin As Date = Calendar1.SelectedDate.ToShortDateString
-                    fechaInicio = Format(fechIni, "yyyy-MM-dd")
-                    fechaFinal = Format(fechaFin, "yyyy-MM-dd")
-                    With sqlComm4
-                        .Connection = sqlConn
-                        .CommandText = sqlQuery4
-                        .CommandType = CommandType.Text
-                        .Parameters.AddWithValue("@fechaEntrada", fechaInicio)
-                        .Parameters.AddWithValue("@fechaSalida", fechaFinal)
-                        .Parameters.AddWithValue("@idAloj", idAloj)
-                        .Parameters.AddWithValue("@idUsr", idUsr)
-                    End With
-                    Try
-                        Dim sqlReader4 As MySqlDataReader = sqlComm4.ExecuteReader()
-
-                        If Not sqlReader4.HasRows Then
-                            MsgBox("Se puede hacer la reserva")
-                        Else
-                            MsgBox("No se puede hace la reserva entre estas fechas")
-                            fechaInicio = ""
-                            fechaFinal = ""
-                        End If
-
-                    Catch ex As MySqlException
-                        MsgBox("Error al sacar el rango de fechas ")
-                    End Try
-                End Using
-            End Using
-        Catch ex As MySqlException
-            MsgBox("Error Al Conectar la base de datos")
-        End Try
-        idRes += 1
-        If idUsr <> 0 And idAloj <> 0 And username <> "" And fechaInicio <> "" And fechaFinal <> "" Then
-            InsertarReservas(idRes, idAloj, idUsr)
+            Catch ex As MySqlException
+                MsgBox("Error Al Conectar la base de datos")
+            End Try
+            idRes += 1
+            If idUsr <> 0 And idAloj <> 0 And username <> "" And fechaInicio <> "" And fechaFinal <> "" Then
+                InsertarReservas(idRes, idAloj, idUsr)
+            End If
         End If
+
+        MsgBox(username)
+
 
     End Sub
 
@@ -274,7 +289,7 @@
     End Sub
 
     Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim valor As String = Request.Params("parametro")
+        Dim valor As String = (Context.Session("parametro")).ToString
         Response.Redirect("WebForm1B.aspx?parametro=" + valor)
     End Sub
 
@@ -299,7 +314,9 @@
     End Sub
 
     Protected Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        Response.Redirect("InicioSessionB.aspx")
+        Dim param As String
+        param = ""
+        Response.Redirect("InicioSessionB.aspx?param=" + param)
     End Sub
 
     Protected Sub Calendar1_DayRender(sender As Object, e As DayRenderEventArgs) Handles Calendar1.DayRender
