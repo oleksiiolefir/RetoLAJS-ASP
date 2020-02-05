@@ -22,7 +22,7 @@
             username = (Context.Session("parametro")).ToString
             Dim cnn As New MySqlConnection()
             cnn.ConnectionString = Session("Conectar")
-            Dim sqlsent As String = "SELECT fechaEntrada As 'Fecha De Entrada',fechaSalida As 'Fecha De Salida',nombre As 'Nombre del Alojamiento',idUsr FROM alojamiento,reserva 
+            Dim sqlsent As String = "SELECT fechaEntrada As 'Fecha De Entrada',fechaSalida As 'Fecha De Salida',nombre As 'Nombre del Alojamiento' FROM alojamiento,reserva 
                  WHERE alojamiento.idAloj = reserva.idAloj And `idUsr` = (SELECT idUsr from usuario where username = '" + username + "')"
             Dim ds As New DataSet
             Dim da As New MySqlDataAdapter(sqlsent, cnn)
@@ -114,11 +114,6 @@
         End If
     End Sub
 
-    Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim valor As String = (Context.Session("parametro")).ToString
-        Response.Redirect("WebForm1B.aspx?parametro=" + valor)
-    End Sub
-
     Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         CompararFechas()
         If fechaEntrada <> "" And fechaSalida <> "" Then
@@ -208,6 +203,7 @@
 
     Protected Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Dim valor As String = ""
+        Session("logeado") = False
         Response.Redirect("InicioSessionB.aspx?parametro=" + valor)
     End Sub
 

@@ -125,30 +125,38 @@
                     </div>                
                 </div>
                 <ul class="sidebar-menu">
-                     <li>
-                         <a href="InicioSessionB.aspx">
-                            <i class="fa fa-th"></i>
-                            <span>Iniciar Session</span>
-                        </a>
-                    </li>  
-                     <li>
-                         <a href="VerAlojamientosB.aspx">
-                            <i class="fa fa-th"></i>
-                            <span>Ver Alojamientos</span>
-                        </a>
-                    </li>  
-                    <li class="active">
-                        <a href="RealizarReservaB.aspx">
-                            <i class="fa fa-dashboard"></i>
-                            <span>Realizar Reserva</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="ModificarReservaB.aspx">
-                            <i class="fa fa-th"></i>
-                            <span>Modificar Reserva</span>
-                        </a>
-                    </li>            
+                        
+                          <li>
+                            <a href="VerAlojamientosB.aspx">
+                              <i class="fa fa-th"></i>
+                              <span>Ver Alojamientos</span>
+                            </a>
+                             </li>  
+                         <% if Session("logeado") = False Then %>
+                              <li>   
+                                <a href = "InicioSessionB.aspx" >
+                                <i class="fa fa-th"></i>
+                                <span>Iniciar Session</span>
+                                </a>
+                             </li>  
+                           <%Else %>
+                              <li class="active">
+                                <a href="RealizarReservaB.aspx">
+                                    <i class="fa fa-dashboard"></i>
+                                    <span>Realizar Reserva</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="ModificarReservaB.aspx">
+                                    <i class="fa fa-th"></i>
+                                    <span>Modificar Reserva</span>
+                                </a>
+                             </li> 
+                          <% End If %>
+                        
+                   
+                   
+                             
                 </ul>
             </section>
         </aside>

@@ -53,9 +53,6 @@
 <br />
 <br />
 <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="Black" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellSpacing="2">
-    <Columns>
-        <asp:ButtonField   ButtonType="Button" CommandName="Select" HeaderText="Mapa" ShowHeader="True" Text="Ver Mapa" />
-    </Columns>
     <FooterStyle BackColor="#CCCCCC" />
     <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
     <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />

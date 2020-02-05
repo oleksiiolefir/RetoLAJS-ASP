@@ -8,10 +8,15 @@
     Dim ordenacion As String = "ASC"
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Session("Conectar") = System.Web.Configuration.WebConfigurationManager.AppSettings("ConectarMySQL").ToString
-
+        If Session("logeado") = False Then
+            Button4.Visible = False
+        Else
+            Button4.Visible = True
+        End If
         rellenoGrid(texto, capacidad, tipo, nombreAloj, ordenacion)
 
         If Not Page.IsPostBack Then
+
             Llenar_DropDownList1()
             Llenar_DropDownList2()
         End If
@@ -20,17 +25,17 @@
 
     Protected Sub rellenoGrid(texto, capacidad, tipo, nombreAloj, ordenacion)
         Try
-            MsgBox("AAAAA" + ordenacion)
-            Dim SQLsentence As String
+            ' MsgBox("AAAAA" + ordenacion)
+            Dim SQLsentence As String = ""
 
             If capacidad.Equals("") And nombreAloj.Equals("") Then
                 SQLsentence = "select nombre,capacidad,tipo,direccion,localidad,provincia,telefono,email,web,descripcion from alojamiento where localidad like('" + texto + "') And tipo = '" + tipo + "' order by nombre " + ordenacion
             ElseIf Not nombreAloj.Equals("") And Not capacidad.Equals("") Then
-                SQLsentence = "select select nombre,capacidad,tipo,direccion,localidad,provincia,telefono,email,web,descripcion from alojamiento where  localidad like ('" + texto + "') And tipo = '" + tipo + "' AND capacidad >= " + capacidad + " AND nombre like('%" + nombreAloj + "%') order by nombre " + ordenacion
+                SQLsentence = "select nombre,capacidad,tipo,direccion,localidad,provincia,telefono,email,web,descripcion from alojamiento where  localidad like ('" + texto + "') And tipo = '" + tipo + "' AND capacidad >= " + capacidad + " AND nombre like('%" + nombreAloj + "%') order by nombre " + ordenacion
             ElseIf Not capacidad.Equals("") Then
-                SQLsentence = "select select nombre,capacidad,tipo,direccion,localidad,provincia,telefono,email,web,descripcion from alojamiento where  localidad like ('" + texto + "') And tipo = '" + tipo + "' AND capacidad >= " + capacidad + " order by nombre " + ordenacion
+                SQLsentence = "select nombre,capacidad,tipo,direccion,localidad,provincia,telefono,email,web,descripcion from alojamiento where  localidad like ('" + texto + "') And tipo = '" + tipo + "' AND capacidad >= " + capacidad + " order by nombre " + ordenacion
             ElseIf Not nombreAloj.Equals("") Then
-                SQLsentence = "select select nombre,capacidad,tipo,direccion,localidad,provincia,telefono,email,web,descripcion from alojamiento where  localidad like ('" + texto + "') And tipo = '" + tipo + "' AND nombre like('%" + nombreAloj + "%') order by nombre " + ordenacion
+                SQLsentence = "select nombre,capacidad,tipo,direccion,localidad,provincia,telefono,email,web,descripcion from alojamiento where  localidad like ('" + texto + "') And tipo = '" + tipo + "' AND nombre like('%" + nombreAloj + "%') order by nombre " + ordenacion
             End If
 
             If texto.Equals("") And capacidad.Equals("") And nombreAloj.Equals("") Then
@@ -115,7 +120,7 @@
                 ordenacion = "ASC"
             End If
 
-            Dim Sqlsentence As String = "select * from alojamiento order by nombre " + ordenacion
+            Dim Sqlsentence As String = "select nombre,capacidad,tipo,direccion,localidad,provincia,telefono,email,web,descripcion from alojamiento order by nombre " + ordenacion
             Dim cnn As New MySqlConnection()
             cnn.ConnectionString = Session("Conectar")
             Dim ds As New DataSet
@@ -133,11 +138,11 @@
     Protected Sub OrdenarPor(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged, RadioButton2.CheckedChanged
         If RadioButton1.Checked Then
             ordenacion = "DESC"
-            MsgBox(ordenacion + " descendente")
+            ' MsgBox(ordenacion + " descendente")
             CogerDatos()
         Else
             ordenacion = "ASC"
-            MsgBox(ordenacion + " ascendente")
+            ' MsgBox(ordenacion + " ascendente")
             CogerDatos()
         End If
     End Sub
@@ -148,14 +153,16 @@
         Else
             ordenacion = "ASC"
         End If
-        MsgBox(ordenacion)
+
         texto = DropDownList1.SelectedValue
         tipo = DropDownList2.SelectedValue
-        nombreAloj = TextBox2.Text
+        nombreAloj = TextBox2.Text.ToUpper
+
+
         If TextBox2.Text.Equals("") Then
             nombreAloj = ""
         Else
-            nombreAloj = TextBox2.Text
+            nombreAloj = TextBox2.Text.ToUpper
         End If
         If TextBox1.Text.Equals("") Then
             capacidad = ""
@@ -168,6 +175,7 @@
     End Sub
 
     Protected Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Session("logeado") = False
         Response.Redirect("InicioSessionB.aspx")
     End Sub
 

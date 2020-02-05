@@ -20,7 +20,7 @@ Public Class InicioSessionB
             Context.Session("parametro") = TextBox1.Text
             TextBox1.Text = ""
             TextBox2.Text = ""
-
+            Session("logeado") = True
         Else
             MsgBox("Datos erroneos")
             TextBox1.Text = ""

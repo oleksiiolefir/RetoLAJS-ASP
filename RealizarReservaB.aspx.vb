@@ -8,6 +8,7 @@
     Private MinDate As Date = Date.MinValue
     Private MaxDate As Date = Date.MaxValue
 
+
     Dim fechaInicio, fechaFinal As String
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Session("Conectar") = System.Web.Configuration.WebConfigurationManager.AppSettings("ConectarMySQL").ToString
@@ -316,6 +317,7 @@
     Protected Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Dim param As String
         param = ""
+        Session("logeado") = False
         Response.Redirect("InicioSessionB.aspx?param=" + param)
     End Sub
 
