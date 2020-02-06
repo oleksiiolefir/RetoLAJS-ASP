@@ -34,12 +34,13 @@
         }
     </style>
     <p class="auto-style10">
-        <asp:Button ID="Button4" runat="server" Text="Cerrar Sessión" />
-        </p>
+        &nbsp;</p>
         <p>
             <table class="auto-style3">
                 <tr>
-                    <td class="auto-style4">&nbsp; <asp:Calendar ID="Calendar2" runat="server" BackColor="White" BorderColor="Black" BorderStyle="Solid" CellSpacing="1" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="250px" NextPrevFormat="ShortMonth" Width="330px">
+                    <td class="auto-style4">&nbsp;<asp:Button ID="Button4" runat="server" Text="Cerrar Sessión" />
+                        <br />
+&nbsp;<asp:Calendar ID="Calendar2" runat="server" BackColor="White" BorderColor="Black" BorderStyle="Solid" CellSpacing="1" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="250px" NextPrevFormat="ShortMonth" Width="330px">
                 <DayHeaderStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" Height="8pt" />
                 <DayStyle BackColor="#CCCCCC" />
                 <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="White" />
@@ -67,42 +68,39 @@
             &nbsp;&nbsp;&nbsp; &nbsp;</p>
         <p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-        </p>
+            </p>
     <p>
         <table class="auto-style2">
             <tr>
                 <td class="auto-style8">
-                    <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="Label5" runat="server" Text="Label" Visible="False"></asp:Label>
                 </td>
                 <td class="auto-style9">
-                    <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="Label6" runat="server" Text="Label" Visible="False"></asp:Label>
                 </td>
                 <td class="auto-style5">
-                    <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="Label7" runat="server" Text="Label" Visible="False"></asp:Label>
                 </td>
                 <td class="auto-style6">
-                    <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="Label8" runat="server" Text="Label" Visible="False"></asp:Label>
                 </td>
                 <td class="auto-style7">
-                    <asp:Label ID="Label9" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="Label9" runat="server" Text="Label" Visible="False"></asp:Label>
                 </td>
                 <td class="auto-style7"></td>
             </tr>
         </table>
         </p>
     <p>
-        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-        </p>
+        &nbsp;</p>
     <p>
-        <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
-        </p>
+        &nbsp;</p>
         <p>
             <asp:Button ID="Button1" runat="server" Text="Reservar" />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button2" runat="server" Text="Atras" />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="Button3" runat="server" Text="Filtrar" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="Button5" runat="server" Text="Ver Todos los alojamientos" />
         </p>
         <p>
         <br />
@@ -112,9 +110,11 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tipo :&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:DropDownList ID="DropDownList2" runat="server">
         </asp:DropDownList>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Capacidad :&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Capacidad :&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="TextBox1" runat="server" type="Number"></asp:TextBox>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Nombre :&nbsp;
+            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
         <br />
         </p>
         <p>

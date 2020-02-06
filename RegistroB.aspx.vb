@@ -7,9 +7,7 @@ Public Class RegistroB
 
     End Sub
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
         insertarDatos()
-
     End Sub
     Protected Sub insertarDatos()
         Dim cn As MySqlConnection
@@ -100,6 +98,7 @@ Public Class RegistroB
             cm.Connection = cn
             cm.ExecuteNonQuery()
             cn.Close()
+            MsgBox("Se ha creado el usuario correctamente")
             Response.Redirect("InicioSessionB.aspx")
         End If
     End Sub

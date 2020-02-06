@@ -29,8 +29,6 @@
             da.Fill(ds, "reserva")
             GridView3.DataSource = ds.Tables("reserva")
             GridView3.DataBind()
-            Label1.Text = "SE HA CONECTADO"
-
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -39,7 +37,7 @@
     Protected Sub GridView3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GridView3.SelectedIndexChanged
         Dim row As GridViewRow = GridView3.SelectedRow
         Session("idAloj") = row.Cells(3).Text
-        Session("idUsr") = row.Cells(4).Text
+
 
         MsgBox("Ha seleccionado la fila")
     End Sub
@@ -47,9 +45,9 @@
     Sub SacaIdRes()
         Try
             Dim nombre As String = Session("idAloj")
-            MsgBox("--------------------" + nombre)
+
             username = (Context.Session("parametro")).ToString
-            MsgBox("--------------------" + username)
+
             Dim connString As String = "server= 192.168.101.35; database=alojamientos ; user id=lajs; password=lajs"
             Dim sqlsentence As String = " SELECT idRes FROM `reserva` WHERE idUsr = (select idUsr from usuario where username = @username) And idAloj = (select idAloj from alojamiento where nombre = @nombre)"
             Using sqlConn As New MySqlConnection(connString)
@@ -67,7 +65,7 @@
                         Dim sqlReader As MySqlDataReader = sqlComm.ExecuteReader()
                         While sqlReader.Read()
                             idRes = sqlReader("idRes")
-                            MsgBox("AAAAAAAAAAAAAAAAAAAAAA" + idRes)
+
                         End While
                     Catch ex As MySqlException
                         MsgBox(ex)
@@ -84,7 +82,7 @@
     Protected Sub GridView3_RowDeleting(sender As Object, e As GridViewDeleteEventArgs) Handles GridView3.RowDeleting
         SacaIdRes()
         idRes = Session("idRes")
-        MsgBox(idRes)
+
         If idRes = "" Then
             MsgBox("Seleccione una reserva")
         Else
@@ -162,9 +160,7 @@
             idAloj = Session("idAloj")
             idUsr = Session("idUsr")
             fechaEntrada = Format(fechIni, "yyyy-MM-dd")
-            MsgBox(fechaEntrada)
             fechaSalida = Format(fechaFin, "yyyy-MM-dd")
-            MsgBox(fechaSalida)
 
             connString = "server= 192.168.101.35; database=alojamientos ; user id=lajs; password=lajs"
             sql = "SELECT * FROM `reserva` where idUsr = @idUsr And idAloj =(select idAloj from alojamiento where nombre =@idAloj ) AND fechaEntrada BETWEEN @fechaEntrada And @fechaSalida AND fechaSalida BETWEEN @fechaEntrada And @fechaSalida   "

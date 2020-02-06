@@ -13,10 +13,8 @@ Public Class InicioSessionB
         Dim contra As Boolean
         contra = SacaContra()
         If contra = True Then
-            '' Outside of Web Forms page class, use HttpContext.Current.HttpContext Context = HttpContext.Current;  
-            ''Context.Session["FirstName"] = firstName;  
-            ''firstName = (String)(Context.Session["FirstName"]);  
-            ' Response.Redirect("WebForm1B.aspx?parametro=" + TextBox1.Text)
+
+            MsgBox("Usuario logeado correctamente")
             Context.Session("parametro") = TextBox1.Text
             TextBox1.Text = ""
             TextBox2.Text = ""

@@ -42,8 +42,6 @@
                 SQLsentence = "select nombre,capacidad,tipo,direccion,localidad,provincia,telefono,email,web,descripcion from alojamiento order by nombre " + ordenacion
             End If
 
-
-
             Dim cnn As New MySqlConnection()
             cnn.ConnectionString = Session("Conectar")
             Dim ds As New DataSet
@@ -52,9 +50,8 @@
             GridView1.DataSource = ds.Tables("cliente")
             GridView1.DataBind()
             cnn.Close()
-            Label1.Text = "SE HA CONECTADO"
         Catch ex As Exception
-            Label1.Text = "NOOOOOOOOO"
+            MsgBox(ex)
         End Try
 
 
@@ -76,8 +73,7 @@
             Me.DropDownList1.DataBind()
             cnn.Close()
         Catch ex As Exception
-
-
+            MsgBox(ex)
         End Try
     End Sub
     Private Sub Llenar_DropDownList2()
@@ -98,15 +94,9 @@
             Me.DropDownList2.DataBind()
             cnn.Close()
         Catch ex As Exception
-
+            MsgBox(ex)
         End Try
     End Sub
-    Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim valor As String = Request.Params("parametro")
-        Response.Redirect("WebForm1B.aspx?parametro=" + valor)
-    End Sub
-
-
 
     Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         CogerDatos()
@@ -129,9 +119,8 @@
             GridView1.DataSource = ds.Tables("todos")
             GridView1.DataBind()
             cnn.Close()
-            Label1.Text = "SE HA CONECTADO"
         Catch ex As Exception
-            Label1.Text = "NOOOOOOOOO"
+            MsgBox(ex)
         End Try
     End Sub
 
@@ -157,7 +146,6 @@
         texto = DropDownList1.SelectedValue
         tipo = DropDownList2.SelectedValue
         nombreAloj = TextBox2.Text.ToUpper
-
 
         If TextBox2.Text.Equals("") Then
             nombreAloj = ""
